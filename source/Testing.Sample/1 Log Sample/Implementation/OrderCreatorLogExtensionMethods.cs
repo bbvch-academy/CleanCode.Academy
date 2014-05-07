@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="OrderCreatorOrderCreatorLogExtensionMethods.cs" company="bbv Software Services AG">
+// <copyright file="OrderCreatorLogExtensionMethods.cs" company="bbv Software Services AG">
 //   Copyright (c) 2014
 //   
 //   Licensed under the Apache License, Version 2.0 (the "License");

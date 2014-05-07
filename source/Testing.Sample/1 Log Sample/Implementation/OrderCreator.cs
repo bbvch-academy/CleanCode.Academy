@@ -64,18 +64,18 @@ namespace CleanCode.Testing.Sample.Implementation
 
             public void Execute()
             {
-                EnsureOrderNotNull();
-                EnsureCustomerNameIsSet();
-                EnsureCustomerAddressIsSet();
+                this.EnsureOrderNotNull();
+                this.EnsureCustomerNameIsSet();
+                this.EnsureCustomerAddressIsSet();
 
                 this.WarnIfOrderAmountOver(OrderAmountLimit);
 
-                ProcessOrder();
+                this.ProcessOrder();
             }
 
             private void EnsureOrderNotNull()
             {
-                if (order == null)
+                if (this.order == null)
                 {
                     this.logger.LogOrderNotSet();
 
@@ -85,9 +85,9 @@ namespace CleanCode.Testing.Sample.Implementation
 
             private void EnsureCustomerNameIsSet()
             {
-                if (string.IsNullOrEmpty(order.CustomerName))
+                if (string.IsNullOrEmpty(this.order.CustomerName))
                 {
-                    this.logger.LogCustomerNameNotSet(order);
+                    this.logger.LogCustomerNameNotSet(this.order);
 
                     throw new ArgumentException("customer name not set.");
                 }
@@ -95,9 +95,9 @@ namespace CleanCode.Testing.Sample.Implementation
 
             private void EnsureCustomerAddressIsSet()
             {
-                if (string.IsNullOrEmpty(order.CustomerAddress))
+                if (string.IsNullOrEmpty(this.order.CustomerAddress))
                 {
-                    this.logger.LogCustomerAddressNotSet(order);
+                    this.logger.LogCustomerAddressNotSet(this.order);
 
                     throw new ArgumentException("customer address not set.");
                 }
