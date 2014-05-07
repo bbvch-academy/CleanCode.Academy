@@ -25,7 +25,6 @@ namespace CleanCode.Testing.Sample
     using CleanCode.Testing.Sample.Implementation;
 
     using FakeItEasy;
-
     using NUnit.Framework;
 
     [TestFixture]
@@ -52,6 +51,58 @@ namespace CleanCode.Testing.Sample
 
             A.CallTo(() => this.logger.Info(OrderCreatorLogExtensionMethods.FormatProcessingOrder(sampleOrder)))
                 .MustHaveHappened();
+        }
+
+        [Test]
+        public void LogsAsError_WhenOrderNotSet()
+        {
+            this.testee.CreateOrder(null);
+
+            A.CallTo(() => this.logger.Error(OrderCreatorLogExtensionMethods.FormatOrderNotSet()))
+                .MustHaveHappened();
+        }
+
+        [Test]
+        public void LogsAsError_WhenCustomerNotSet()
+        {
+            var orderWithoutCustomer = new OrderRequest(1, null, null, new Collection<OrderItem>());
+
+            this.testee.CreateOrder(orderWithoutCustomer);
+
+            A.CallTo(() => this.logger.Error(OrderCreatorLogExtensionMethods.FormatCustomerNameNotSet(orderWithoutCustomer)))
+                .MustHaveHappened();
+        }
+
+        [Test]
+        public void LogsAsError_WhenCustomerAddressNotSet()
+        {
+            var orderWithoutCustomerAddress = new OrderRequest(1, "Dagobert Duck", null, new Collection<OrderItem>());
+
+            this.testee.CreateOrder(orderWithoutCustomerAddress);
+
+            A.CallTo(() => this.logger.Error(OrderCreatorLogExtensionMethods.FormatCustomerAddressNotSet(orderWithoutCustomerAddress)))
+                .MustHaveHappened();
+        }
+
+        [Test]
+        public void LogsAsWarning_WhenOrderExceedsAmountLimit()
+        {
+            const int Limit = 150;
+            const decimal AmountFirstItem = 20;
+            const decimal AmountSecondItem = 300;
+            const decimal Amount = AmountFirstItem + AmountSecondItem;
+
+            OrderItem[] orderItems =
+            {
+                new OrderItem(12, "Pucks", AmountFirstItem),
+                new OrderItem(13, "Skates", AmountSecondItem)
+            };
+            var orderExceedingAmountLimit = new OrderRequest(1, "Mighty Ducks", "Anaheim", orderItems);
+
+            this.testee.CreateOrder(orderExceedingAmountLimit);
+
+            A.CallTo(() => this.logger.Warn(
+                OrderCreatorLogExtensionMethods.FormatOrderExceedsLimit(orderExceedingAmountLimit, Amount, Limit))).MustHaveHappened();
         }
     }
 }

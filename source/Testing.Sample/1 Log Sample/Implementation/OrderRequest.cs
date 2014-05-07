@@ -18,16 +18,17 @@
 
 namespace CleanCode.Testing.Sample.Implementation
 {
-    using System.Collections.ObjectModel;
+    using System.Collections.Generic;
+    using System.Linq;
 
     public class OrderRequest
     {
-        public OrderRequest(int id, string customerName, string customerAddress, Collection<OrderItem> items)
+        public OrderRequest(int id, string customerName, string customerAddress, IEnumerable<OrderItem> items)
         {
             this.Id = id;
             this.CustomerName = customerName;
             this.CustomerAddress = customerAddress;
-            this.Items = items;
+            this.Items = items.ToList();
         }
 
         public int Id { get; private set; }
@@ -36,6 +37,6 @@ namespace CleanCode.Testing.Sample.Implementation
 
         public string CustomerAddress { get; private set; }
 
-        public Collection<OrderItem> Items { get; private set; }
+        public IReadOnlyList<OrderItem> Items { get; private set; }
     }
 }

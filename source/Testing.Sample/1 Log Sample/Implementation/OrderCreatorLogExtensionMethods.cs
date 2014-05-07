@@ -33,24 +33,53 @@ namespace CleanCode.Testing.Sample.Implementation
             logger.Debug("order succefully created!");
         }
 
+        public static string FormatOrderNotSet()
+        {
+            return "order is null.";
+        }
+
         public static void LogOrderNotSet(this ILogger logger)
         {
-            logger.Error("order is null.");
+            logger.Error(FormatOrderNotSet());
+        }
+
+        public static string FormatCustomerNameNotSet(OrderRequest order)
+        {
+            return string.Format(CultureInfo.InvariantCulture, "no customer defined in order {0}.", order.Id);
         }
 
         public static void LogCustomerNameNotSet(this ILogger logger, OrderRequest order)
         {
-            logger.Error("no customer defined in order {0}.", order.Id);
+            logger.Error(FormatCustomerNameNotSet(order));
+        }
+
+        public static string FormatCustomerAddressNotSet(OrderRequest order)
+        {
+            return string.Format(
+                CultureInfo.InvariantCulture,
+                "address of customer {0} not defined in order {1}.",
+                order.CustomerAddress,
+                order.Id);
         }
 
         public static void LogCustomerAddressNotSet(this ILogger logger, OrderRequest order)
         {
-            logger.Error("address of customer {0} not defined in order {1}.", order.CustomerAddress, order.Id);
+            logger.Error(FormatCustomerAddressNotSet(order));
+        }
+
+        public static string FormatOrderExceedsLimit(OrderRequest order, decimal amount, int limit)
+        {
+            return string.Format(
+                CultureInfo.InvariantCulture,
+                "amout of order {0} exceeds the limit of {1} with {2}.",
+                order.Id,
+                amount,
+                limit);
         }
 
         public static void LogOrderExceedsLimit(this ILogger logger, OrderRequest order, decimal amount, int limit)
         {
-            logger.Warn("amout of order {0} exceeds the limit of {1} with {2}.", order.Id, amount, limit);
+            logger.Warn(FormatOrderExceedsLimit(order, amount, limit));
         }
 
         public static string FormatProcessingOrder(OrderRequest order)
