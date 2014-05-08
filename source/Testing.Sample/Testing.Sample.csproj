@@ -48,6 +48,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -67,6 +68,15 @@
     <Compile Include="2 Fody EnableFakting Sample\Implementation\AdditionOperator.cs" />
     <Compile Include="2 Fody EnableFakting Sample\Implementation\Calculator.cs" />
     <Compile Include="2 Fody EnableFakting Sample\Implementation\SubtractionOperator.cs" />
+    <Compile Include="3 ExtensionMethods Sample\HousePainterTest.cs" />
+    <Compile Include="3 ExtensionMethods Sample\HouseXmlExtensionMethods.cs" />
+    <Compile Include="3 ExtensionMethods Sample\Implementation\ColorConverter.cs" />
+    <Compile Include="3 ExtensionMethods Sample\Implementation\FrontDoor.cs" />
+    <Compile Include="3 ExtensionMethods Sample\Implementation\House.cs" />
+    <Compile Include="3 ExtensionMethods Sample\Implementation\HousePainter.cs" />
+    <Compile Include="3 ExtensionMethods Sample\Implementation\HouseSerializer.cs" />
+    <Compile Include="3 ExtensionMethods Sample\Implementation\Roof.cs" />
+    <Compile Include="3 ExtensionMethods Sample\Implementation\Window.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
