@@ -11,6 +11,7 @@
     <AssemblyName>Testing.Sample</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <FodyPath>..\packages\Fody.1.15.0.0</FodyPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -32,6 +33,12 @@
   <ItemGroup>
     <Reference Include="FakeItEasy">
       <HintPath>..\packages\FakeItEasy.1.20.0\lib\net40\FakeItEasy.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentAssertions">
+      <HintPath>..\packages\FluentAssertions.3.0.107\lib\net45\FluentAssertions.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentAssertions.Core">
+      <HintPath>..\packages\FluentAssertions.3.0.107\lib\net45\FluentAssertions.Core.dll</HintPath>
     </Reference>
     <Reference Include="NLog">
       <HintPath>..\packages\NLog.2.1.0\lib\net45\NLog.dll</HintPath>
@@ -56,12 +63,21 @@
     <Compile Include="1 Log Sample\Implementation\OrderItem.cs" />
     <Compile Include="1 Log Sample\Implementation\OrderRequest.cs" />
     <Compile Include="1 Log Sample\OrderCreatorLogTest.cs" />
+    <Compile Include="2 Fody EnableFakting Sample\CalculatorTest.cs" />
+    <Compile Include="2 Fody EnableFakting Sample\Implementation\AdditionOperator.cs" />
+    <Compile Include="2 Fody EnableFakting Sample\Implementation\Calculator.cs" />
+    <Compile Include="2 Fody EnableFakting Sample\Implementation\SubtractionOperator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Fody.targets" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="FodyWeavers.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="Fody.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
