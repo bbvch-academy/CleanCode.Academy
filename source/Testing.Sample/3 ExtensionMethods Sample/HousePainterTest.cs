@@ -18,12 +18,15 @@
 
 namespace CleanCode.Testing.Sample
 {
-    using System;
+    using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.Drawing;
+    using System.Linq;
     using System.Xml.Linq;
 
     using CleanCode.Testing.Sample.Implementation;
+
+    using FluentAssertions;
 
     using NUnit.Framework;
 
@@ -33,13 +36,50 @@ namespace CleanCode.Testing.Sample
         [Test]
         public void PaintsTheRoof()
         {
+            Color newColor = Color.Red;
             HousePainter testee = CreateTestee();
 
-            testee.ChangeColorOfRoof(Color.Red);
+            testee.ChangeColorOfRoof(newColor);
             XDocument result = testee.GetResult();
 
-            // result.RoofElement().ColorAttributeValue().Should().Be(Color.Red);
-            Console.WriteLine(result);
+            result.RoofElement().ColorAttributeValue().Should().Be(newColor);
+        }
+
+        [Test]
+        public void PaintsTheDoor()
+        {
+            Color newColor = Color.RoyalBlue;
+            HousePainter testee = CreateTestee();
+
+            testee.ChangeColorOfFrontDoor(newColor);
+            XDocument result = testee.GetResult();
+
+            result.FrontDoorElement().ColorAttributeValue().Should().Be(newColor);
+        }
+
+        [Test]
+        public void PaintsTheFacade()
+        {
+            Color newColor = Color.FromArgb(250, 240, 232);
+            HousePainter testee = CreateTestee();
+
+            testee.ChangeColorOfFacade(newColor);
+            XDocument result = testee.GetResult();
+
+            result.FacadeColorElementValue().Should().Be(newColor);
+        }
+
+        [Test]
+        public void PaintsTheWindowBorders()
+        {
+            Color newColor = Color.FromArgb(10, 15, 72);
+            HousePainter testee = CreateTestee();
+
+            testee.ChangeBorderColorOfAllWindows(newColor);
+            ICollection<XElement> result = testee.GetResult().WindowElements();
+
+            result.First().ColorAttributeValue().Should().Be(newColor);
+            result.Last().ColorAttributeValue().Should().Be(newColor);
         }
 
         private static HousePainter CreateTestee()
