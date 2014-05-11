@@ -77,6 +77,15 @@
     <Compile Include="3 ExtensionMethods Sample\Implementation\HouseSerializer.cs" />
     <Compile Include="3 ExtensionMethods Sample\Implementation\Roof.cs" />
     <Compile Include="3 ExtensionMethods Sample\Implementation\Window.cs" />
+    <Compile Include="4 Simple Builder Sample\BuildedHousePainterTest.cs" />
+    <Compile Include="4 Simple Builder Sample\HouseBuilder.cs" />
+    <Compile Include="4 Simple Builder Sample\SampleImplementation\Floor.cs" />
+    <Compile Include="4 Simple Builder Sample\SampleImplementation\FrontDoor.cs" />
+    <Compile Include="4 Simple Builder Sample\SampleImplementation\House.cs" />
+    <Compile Include="4 Simple Builder Sample\SampleImplementation\HousePainter.cs" />
+    <Compile Include="4 Simple Builder Sample\SampleImplementation\Roof.cs" />
+    <Compile Include="4 Simple Builder Sample\SampleImplementation\Room.cs" />
+    <Compile Include="4 Simple Builder Sample\SampleImplementation\Window.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
