@@ -86,6 +86,21 @@
     <Compile Include="4 Simple Builder Sample\SampleImplementation\Roof.cs" />
     <Compile Include="4 Simple Builder Sample\SampleImplementation\Room.cs" />
     <Compile Include="4 Simple Builder Sample\SampleImplementation\Window.cs" />
+    <Compile Include="5 Builder with Syntax Sample\Builder\HouseBuilderWithSyntax.cs" />
+    <Compile Include="5 Builder with Syntax Sample\Builder\IBuildHouseSyntax.cs" />
+    <Compile Include="5 Builder with Syntax Sample\Builder\ICreateHouseSyntax.cs" />
+    <Compile Include="5 Builder with Syntax Sample\Builder\IWithFloorSyntax.cs" />
+    <Compile Include="5 Builder with Syntax Sample\Builder\IWithFrontDoorSyntax.cs" />
+    <Compile Include="5 Builder with Syntax Sample\Builder\IWithRoomSyntax.cs" />
+    <Compile Include="5 Builder with Syntax Sample\Builder\IWithWindowSyntax.cs" />
+    <Compile Include="5 Builder with Syntax Sample\SameImplementation\Floor.cs" />
+    <Compile Include="5 Builder with Syntax Sample\SameImplementation\FrontDoor.cs" />
+    <Compile Include="5 Builder with Syntax Sample\SameImplementation\House.cs" />
+    <Compile Include="5 Builder with Syntax Sample\SameImplementation\HousePainter.cs" />
+    <Compile Include="5 Builder with Syntax Sample\SameImplementation\Roof.cs" />
+    <Compile Include="5 Builder with Syntax Sample\SameImplementation\Room.cs" />
+    <Compile Include="5 Builder with Syntax Sample\SameImplementation\Window.cs" />
+    <Compile Include="5 Builder with Syntax Sample\SmartBuildedHousePainterTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -95,11 +110,9 @@
   <ItemGroup>
     <Content Include="FodyWeavers.xml" />
   </ItemGroup>
-
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" /> 
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="Fody.targets" />
   <Import Project="..\CleanCode.targets" />
-
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
@@ -107,5 +120,4 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  
 </Project>
