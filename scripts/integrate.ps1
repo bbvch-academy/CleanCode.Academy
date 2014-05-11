@@ -29,7 +29,7 @@ Function MsBuildExeFilePath {
 $msbuildExe = MsBuildExeFilePath
 $solutionFile = "..\source\CleanCode.Academy.sln"
 
-&$msbuildExe $solutionFile /target:Build /property:Configuration=release /verbosity:normal
+&$msbuildExe $solutionFile /target:Build /property:Configuration=release /verbosity:minimal
 
 $date = Get-Date
 Write-Host "`r`nScript was last run on: " $date "`r`n" -Foreground "Cyan"
