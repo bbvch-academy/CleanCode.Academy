@@ -1,0 +1,34 @@
+// created with yuml.me
+
+// sample2
+[SubtractionOperator]-.-^[ISubtractionOperator|CalculateDifference{bg:forestgreen}],
+[AdditionOperator]-.-^[IAdditionOperator|CalculateSum{bg:forestgreen}]
+
+// sample3
+[House|FacadeColor: Color;Height: double;Width: double;NumberOfFloors: int],
+[Roof|Color: Color;Size: double],
+[Window|BorderColor: Color;Dimension: SizeF],
+[FrontDoor|Color: Color;Height: double;Width: double],
+[House]++-0..1[FrontDoor],
+[House]++-0..1[Roof],
+[House]++-0..*[Window]
+
+// sample4
+[House|FacadeColor;Height;Width],
+[Floor|Level;Height],
+[FrontDoor|Color;Height;Width],
+[Roof|Color;Size],
+[Room|Color],
+[Window|BorderColor;Dimension],
+[House]++-1[FrontDoor],
+[House]++-0..1[Roof],
+[House]++-1..*[Floor],
+[Floor]++-1..*[Room],
+[Room]++-1..*[Window]
+
+// sample5
+[House]++-1[FrontDoor],
+[House]++-0..1[Roof],
+[House]++-1..*[Floor],
+[Floor]++-1..*[Room],
+[Room]++-1..*[Window]

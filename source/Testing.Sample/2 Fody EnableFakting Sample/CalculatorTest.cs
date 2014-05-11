@@ -18,8 +18,6 @@
 
 namespace CleanCode.Testing.Sample
 {
-    using System.Security.AccessControl;
-
     using CleanCode.Testing.Sample.Implementation;
 
     using FakeItEasy;
