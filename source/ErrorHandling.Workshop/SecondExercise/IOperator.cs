@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="PowerOperator.cs" company="bbv Software Services AG">
+// <copyright file="IOperator.cs" company="bbv Software Services AG">
 //   Copyright (c) 2014
 //   
 //   Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,22 +18,10 @@
 
 namespace ErrorHandling.Workshop.SecondExercise
 {
-    using System;
-
-    public class PowerOperator : IOperator
+    public interface IOperator
     {
-        public const string Name = "Pow";
+        string CommandName { get; }
 
-        public string CommandName
-        {
-            get { return Name; }
-        }
-
-        public int Calculate(int firstNumber, int secondNumber)
-        {
-            double resultAsDouble = Math.Pow(firstNumber, secondNumber);
-
-            return Convert.ToInt32(resultAsDouble);
-        }
+        int Calculate(int firstNumber, int secondNumber);
     }
 }

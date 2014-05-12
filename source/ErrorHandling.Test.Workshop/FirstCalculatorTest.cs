@@ -111,6 +111,7 @@ namespace ErrorHandling.Test.Workshop
             this.testee.SetNumber(5);
             this.testee.PerformOperation(PowerOperationCommandName);
             this.testee.SetNumber(3);
+
             this.testee.Invoking(x => x.PerformOperation(PowerOperationCommandName)).ShouldThrow<Exception>();
 
             this.loggerStub.LoggedMessages.Should().Contain(x => x.Contains("no Pow operation"));
@@ -124,6 +125,7 @@ namespace ErrorHandling.Test.Workshop
             this.testee.SetNumber(5);
             this.testee.PerformOperation(PowerOperationCommandName);
             this.testee.SetNumber(3);
+
             Action act = () => this.testee.PerformOperation(EndOperator.Name);
 
             act.ShouldThrow<InvalidOperationException>();
