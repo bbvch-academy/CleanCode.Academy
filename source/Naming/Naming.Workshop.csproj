@@ -84,6 +84,7 @@
   <ItemGroup />
 
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+
   <Import Project="..\CleanCode.targets" />
 
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -3,13 +3,6 @@
   <PropertyGroup>
     <!-- StyleCop settings -->
     <StyleCopTreatErrorsAsWarnings>false</StyleCopTreatErrorsAsWarnings>
-    <StyleCopTargets>C:\Program Files (x86)\MSBuild\StyleCop\v4.7\StyleCop.targets</StyleCopTargets>
   </PropertyGroup>
-
-  <Import Project="$(StyleCopTargets)" Condition="'$(Configuration)'=='Release' And Exists('$(StyleCopTargets)')" /> 
-
-  <Target Name="AfterBuild">
-	<Warning Text="StylCop not found at $(StyleCopTargets)" Condition="!Exists('$(StyleCopTargets)')" />
-  </Target>
 
 </Project>
