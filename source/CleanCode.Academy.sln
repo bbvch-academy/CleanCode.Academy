@@ -16,6 +16,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testing", "Testing", "{FECB
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testing.Sample", "Testing.Sample\Testing.Sample.csproj", "{C035BB11-300D-4B30-BF01-13551883A790}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Design", "Design", "{C2758BDF-A549-4949-BD1E-6B354528D9A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Design", "Design\Design.csproj", "{1C69E127-89F2-4866-B23A-EE620913C3DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Design.Test", "Design.Test\Design.Test.csproj", "{24F6082A-DDCB-493E-AEAA-C402BDF7298A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,6 +36,14 @@ Global
 		{C035BB11-300D-4B30-BF01-13551883A790}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C035BB11-300D-4B30-BF01-13551883A790}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C035BB11-300D-4B30-BF01-13551883A790}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C69E127-89F2-4866-B23A-EE620913C3DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C69E127-89F2-4866-B23A-EE620913C3DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C69E127-89F2-4866-B23A-EE620913C3DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C69E127-89F2-4866-B23A-EE620913C3DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24F6082A-DDCB-493E-AEAA-C402BDF7298A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24F6082A-DDCB-493E-AEAA-C402BDF7298A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24F6082A-DDCB-493E-AEAA-C402BDF7298A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24F6082A-DDCB-493E-AEAA-C402BDF7298A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -37,5 +51,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{30190AC1-01F6-4EE8-B4E1-80711F1E186B} = {5F32366E-A2A3-4DA5-831C-7C597890E33E}
 		{C035BB11-300D-4B30-BF01-13551883A790} = {FECBB58C-9683-4FCF-8879-BBDFA0964981}
+		{1C69E127-89F2-4866-B23A-EE620913C3DF} = {C2758BDF-A549-4949-BD1E-6B354528D9A0}
+		{24F6082A-DDCB-493E-AEAA-C402BDF7298A} = {C2758BDF-A549-4949-BD1E-6B354528D9A0}
 	EndGlobalSection
 EndGlobal
