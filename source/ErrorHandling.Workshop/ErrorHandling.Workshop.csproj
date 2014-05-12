@@ -25,11 +25,12 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
+    <Optimize>false</Optimize>
     <OutputPath>..\..\result\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -45,6 +46,9 @@
     <Compile Include="FirstExercise\Calculator.cs" />
     <Compile Include="FirstExercise\EndOperator.cs" />
     <Compile Include="FirstExercise\IOperator.cs" />
+    <Compile Include="SecondExercise\Calculator.cs" />
+    <Compile Include="SecondExercise\EndOperator.cs" />
+    <Compile Include="SecondExercise\IOperator.cs" />
     <Compile Include="SecondExercise\PowerOperator.cs" />
     <Compile Include="FirstExercise\SubtractionOperator.cs" />
     <Compile Include="ILogger.cs" />
