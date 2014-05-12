@@ -63,9 +63,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ErrorHandling.Workshop\ErrorHandling.Workshop.csproj">
+    <ProjectReference Include="..\ErrorHandling.Workshop\ErrorHandling.csproj">
       <Project>{3647d2af-4e67-45c8-8bfa-64fe13e6e72c}</Project>
-      <Name>ErrorHandling.Workshop</Name>
+      <Name>ErrorHandling</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

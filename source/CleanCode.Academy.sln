@@ -24,9 +24,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Design.Test", "Design.Test\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 ErrorHandling", "3 ErrorHandling", "{128AFC6D-1252-407A-A25B-D85F7DEFE6F5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ErrorHandling.Workshop", "ErrorHandling.Workshop\ErrorHandling.Workshop.csproj", "{3647D2AF-4E67-45C8-8BFA-64FE13E6E72C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ErrorHandling", "ErrorHandling.Workshop\ErrorHandling.csproj", "{3647D2AF-4E67-45C8-8BFA-64FE13E6E72C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ErrorHandling.Test.Workshop", "ErrorHandling.Test.Workshop\ErrorHandling.Test.Workshop.csproj", "{D7AA3835-309F-4779-A2B6-AC445BDF697F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ErrorHandling.Test", "ErrorHandling.Test.Workshop\ErrorHandling.Test.csproj", "{D7AA3835-309F-4779-A2B6-AC445BDF697F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
