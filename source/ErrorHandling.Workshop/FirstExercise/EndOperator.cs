@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="CalculatorTest.cs" company="bbv Software Services AG">
+// <copyright file="EndOperator.cs" company="bbv Software Services AG">
 //   Copyright (c) 2014
 //   
 //   Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,21 +16,23 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace ErrorHandling.Test.Workshop
+namespace ErrorHandling.Workshop.FirstExercise
 {
-    using ErrorHandling.Workshop;
-
-    using NUnit.Framework;
-
-    [TestFixture]
-    public class CalculatorTest
+    public class EndOperator : IOperator
     {
-        private Calculator testee;
+        public const string Name = "End";
 
-        [SetUp]
-        public void SetUp()
+        public string CommandName
         {
-            this.testee = new Calculator();
+            get
+            {
+                return Name;
+            }
+        }
+
+        public int Calculate(int firstNumber, int secondNumber)
+        {
+            return firstNumber;
         }
     }
 }

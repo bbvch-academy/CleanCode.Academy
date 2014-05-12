@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="IOperator.cs" company="bbv Software Services AG">
+// <copyright file="SubtractionOperator.cs" company="bbv Software Services AG">
 //   Copyright (c) 2014
 //   
 //   Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,12 +16,23 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace ErrorHandling.Workshop
+namespace ErrorHandling.Workshop.FirstExercise
 {
-    public interface IOperator
+    public class SubtractionOperator : IOperator
     {
-        string CommandName { get; }
+        public const string Name = "Sub";
 
-        int Calculate(int firstNumber, int secondNumber);
+        public string CommandName
+        {
+            get
+            {
+                return Name;
+            }
+        }
+
+        public int Calculate(int minuend, int subtrahend)
+        {
+            return minuend - subtrahend;
+        }
     }
 }

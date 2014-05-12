@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="SubtractionOperator.cs" company="bbv Software Services AG">
+// <copyright file="AdditionOperator.cs" company="bbv Software Services AG">
 //   Copyright (c) 2014
 //   
 //   Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,15 +16,23 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace ErrorHandling.Workshop
+namespace ErrorHandling.Workshop.FirstExercise
 {
-    using System;
-
-    public class SubtractionOperator
+    public class AdditionOperator : IOperator
     {
-        public int Calculate(int minuend, int subtrahend)
+        public const string Name = "Add";
+
+        public string CommandName
         {
-            throw new NotImplementedException();
+            get
+            {
+                return Name;
+            }
+        }
+
+        public int Calculate(int firstSummand, int secondSummand)
+        {
+            return firstSummand + secondSummand;
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="AdditionOperator.cs" company="bbv Software Services AG">
+// <copyright file="ILogger.cs" company="bbv Software Services AG">
 //   Copyright (c) 2014
 //   
 //   Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,19 +18,8 @@
 
 namespace ErrorHandling.Workshop
 {
-    public class AdditionOperator : IOperator
+    public interface ILogger
     {
-        public string CommandName
-        {
-            get
-            {
-                return "ADD";
-            }
-        }
-
-        public int Calculate(int firstSummand, int secondSummand)
-        {
-            return firstSummand + secondSummand;
-        }
+        void Log(string message);
     }
 }
