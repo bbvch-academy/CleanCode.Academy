@@ -14,22 +14,10 @@
 #   limitations under the License.
 # </copyright>
 
-Function MsBuildExeFilePath {
-    # source: http://stackoverflow.com/questions/328017/path-to-msbuild
-    # valid versions are [2.0, 3.5, 4.0]
-    $dotNetVersion = "4.0"
-    $regKey = "HKLM:\software\Microsoft\MSBuild\ToolsVersions\$dotNetVersion"
-    $regProperty = "MSBuildToolsPath"
+Remove-Module [p]sake
+Import-Module ..\source\packages\psake.4.3.2\tools\psake.psm1
 
-    $msbuildExe = join-path -path (Get-ItemProperty $regKey).$regProperty -childpath "msbuild.exe"
-    
-    return $msbuildExe
-}
-
-$msbuildExe = MsBuildExeFilePath
-$solutionFile = "..\source\CleanCode.Academy.sln"
-
-&$msbuildExe $solutionFile /target:Build /property:Configuration=release /verbosity:minimal
+Invoke-psake .\integrate.tasks.ps1 -tasklist Integrate
 
 $date = Get-Date
 Write-Host "`r`nScript was last run on: " $date "`r`n" -Foreground "Cyan"

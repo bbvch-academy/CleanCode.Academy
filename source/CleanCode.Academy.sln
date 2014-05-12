@@ -8,6 +8,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Naming.Workshop", "Naming\Naming.Workshop.csproj", "{30190AC1-01F6-4EE8-B4E1-80711F1E186B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{BC0B7FF2-DC4C-47FA-B9A2-9CDECE9A2614}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testing", "Testing", "{FECBB58C-9683-4FCF-8879-BBDFA0964981}"
 EndProject
