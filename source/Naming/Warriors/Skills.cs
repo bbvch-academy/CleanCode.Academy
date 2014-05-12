@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="AssemblyInfo.cs" company="bbv Software Services AG">
+// <copyright file="Skills.cs" company="bbv Software Services AG">
 //   Copyright (c) 2014
 //   
 //   Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,19 +14,23 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 // </copyright>
-// <summary>
-//   AssemblyInfo.cs
-// </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-using System.Reflection;
-using System.Runtime.InteropServices;
+namespace CleanCode.Naming.Warriors
+{
+    public class Skills
+    {
+        public Skills(double attackPoints, double defensePoints, int handicapPoints)
+        {
+            this.AttackPoints = attackPoints;
+            this.DefensePoints = defensePoints;
+            this.HandicapPoints = handicapPoints;
+        }
 
-[assembly: AssemblyTitle("CleanCode.Naming")]
-[assembly: AssemblyCompany("bbv Software Services")]
-[assembly: AssemblyProduct("CleanCode.Naming")]
-[assembly: AssemblyCopyright("Copyright © bbv Software Services 2013")]
-[assembly: ComVisible(false)]
-[assembly: Guid("59a0c082-1304-4dd1-bd09-869ab92ab796")]
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+        public double AttackPoints { get; private set; }
+
+        public double DefensePoints { get; private set; }
+
+        public int HandicapPoints { get; private set; }
+    }
+}

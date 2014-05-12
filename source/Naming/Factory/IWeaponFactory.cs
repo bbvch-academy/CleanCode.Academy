@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="LevelCalculator.cs" company="bbv Software Services AG">
-//   Copyright (c) 2013
+// <copyright file="IWeaponFactory.cs" company="bbv Software Services AG">
+//   Copyright (c) 2014
 //   
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -14,33 +14,14 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 // </copyright>
-// <summary>
-//   Level Calculator
-// </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace CleanCode.Naming.Warriors
+namespace CleanCode.Naming.Factory
 {
-    using System;
-
     using CleanCode.Naming.Weapons;
 
-    /// <summary>
-    /// Level Calculator
-    /// </summary>
-    public static class LevelCalculationHelper
+    public interface IWeaponFactory
     {
-        /// <summary>
-        /// Determines the level.
-        /// </summary>
-        /// <param name="skills">The skills.</param>
-        /// <param name="weapon">The weapon.</param>
-        public static int DetermineCombatLevel(SkillsContainer skills, Weapon weapon)
-        {
-            double a = skills.Attack + weapon.APoints;
-            double d = skills.Defense / skills.Handicap;
-
-            return Convert.ToInt32(Math.Ceiling(a + d));
-        }
+        IWeapon Create(double weaponAttackPoints);
     }
 }

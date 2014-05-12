@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="Bowyer.cs" company="bbv Software Services AG">
-//   Copyright (c) 2013
+// <copyright file="WeaponCollection.cs" company="bbv Software Services AG">
+//   Copyright (c) 2014
 //   
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -14,27 +14,44 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 // </copyright>
-// <summary>
-//   The bowyer.
-// </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace CleanCode.Naming.Factory
+namespace CleanCode.Naming.Storages
 {
+    using System.Collections.ObjectModel;
+
     using CleanCode.Naming.Weapons;
 
-    /// <summary>
-    /// The bowyer.
-    /// </summary>
-    public class Bowyer : IWeaponCreator
+    public class WeaponCollection
     {
-        /// <summary>
-        /// Forges the new weapon.
-        /// </summary>
-        /// <param name="points">The attack points.</param>
-        public Weapon ForgeNewWeapon(double points)
+        private readonly Collection<IWeapon> weapons;
+
+        public WeaponCollection()
         {
-            return new BowImpl(points);
+            this.weapons = new Collection<IWeapon>();
+        }
+
+        public int Count
+        {
+            get
+            {
+                return this.weapons.Count;
+            }
+        }
+
+        public void Add(IWeapon newWeapon)
+        {
+            this.weapons.Add(newWeapon);
+        }
+
+        public IWeapon GetAt(int index)
+        {
+            return this.weapons[index];
+        }
+
+        public void RemoveAt(int index)
+        {
+            this.weapons.RemoveAt(index);
         }
     }
 }

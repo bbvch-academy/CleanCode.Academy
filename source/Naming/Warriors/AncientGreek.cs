@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="AncientGreek.cs" company="bbv Software Services AG">
-//   Copyright (c) 2013
+//   Copyright (c) 2014
 //   
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -14,76 +14,42 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 // </copyright>
-// <summary>
-//   Defines the AncientGreek type.
-// </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
 namespace CleanCode.Naming.Warriors
 {
     using CleanCode.Naming.Weapons;
 
-    /// <summary>
-    /// The mighty and super clever with the spear ancient greek from the time of Alexander the Great!!!!
-    /// </summary>
-    /// <remarks>
-    /// The clever ancient greek is a master of the art of the spear. However, if he doesn't get his
-    /// favored killing tool, he will fight with his bare hands rather than using another weapon!
-    /// </remarks>
-    public class AncientGreek : Warrior
+    public class AncientGreek : IWarrior
     {
-        /// <summary>
-        /// The weapon handler
-        /// </summary>
-        private readonly WeaponHandler weaponHandler;
+        private readonly IWeaponEquipmentStrategy weaponEquipmentStrategy;
 
-        /// <summary>
-        /// The qualities
-        /// </summary>
-        private readonly SkillsContainer qualities;
+        private readonly Skills skills;
 
-        /// <summary>
-        /// The clever ancient greek weapon.
-        /// </summary>
-        private Weapon cleverAncientGreekWeapon;
+        private IWeapon weapon;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="AncientGreek" /> class.
-        /// </summary>
-        /// <param name="weaponHandler">The weapon handler.</param>
-        /// <param name="qualities">The qualities.</param>
-        public AncientGreek(WeaponHandler weaponHandler, SkillsContainer qualities)
+        public AncientGreek(IWeaponEquipmentStrategy weaponEquipmentStrategy, Skills skills)
         {
-            this.weaponHandler = weaponHandler;
-            this.qualities = qualities;
+            this.weaponEquipmentStrategy = weaponEquipmentStrategy;
+            this.skills = skills;
         }
 
-        /// <summary>
-        /// Combats the level.
-        /// </summary>
         public int CombatLevel
         {
             get
             {
-                return LevelCalculationHelper.DetermineCombatLevel(this.qualities, this.cleverAncientGreekWeapon);
+                return CombatLevelCalculator.Calculate(this.skills, this.weapon);
             }
         }
 
-        /// <summary>
-        /// Takes the killing tool.
-        /// </summary>
-        /// <param name="weapon">The weapon.</param>
-        public void TakeKillingTool(Weapon weapon)
+        public void Equip(IWeapon weapon)
         {
-            this.cleverAncientGreekWeapon = this.weaponHandler.HandleEquipmentOfWeapon(weapon);
+            this.weapon = this.weaponEquipmentStrategy.Equip(weapon);
         }
 
-        /// <summary>
-        /// Combats the level.
-        /// </summary>
-        public string CombatLevelText()
+        public string CombatMessage()
         {
-            return string.Format("Greek is fighting with {0} ({1} attack points)", this.cleverAncientGreekWeapon.Label, this.CombatLevel);
+            return string.Format("Greek is fighting with {0} ({1} attack points)", this.weapon.Name, this.CombatLevel);
         }
     }
 }

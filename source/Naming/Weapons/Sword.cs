@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="SwordImpl.cs" company="bbv Software Services AG">
-//   Copyright (c) 2013
+// <copyright file="Sword.cs" company="bbv Software Services AG">
+//   Copyright (c) 2014
 //   
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -14,42 +14,20 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 // </copyright>
-// <summary>
-//   Sword implementation.
-// </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
 namespace CleanCode.Naming.Weapons
 {
-    /// <summary>
-    /// Sword implementation.
-    /// </summary>
-    public class SwordImpl : Weapon
+    public class Sword : IWeapon
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SwordImpl" /> class.
-        /// </summary>
-        /// <param name="attackPoints">The attack points.</param>
-        public SwordImpl(double attackPoints)
+        public Sword(double attackPoints)
         {
-            APoints = attackPoints;
+            this.AttackPoints = attackPoints;
         }
 
-        /// <summary>
-        /// Gets the attack points.
-        /// </summary>
-        /// <value>
-        /// The attack points.
-        /// </value>
-        public double APoints { get; private set; }
+        public double AttackPoints { get; private set; }
 
-        /// <summary>
-        /// Gets the label.
-        /// </summary>
-        /// <value>
-        /// The label.
-        /// </value>
-        public string Label
+        public string Name
         {
             get
             {

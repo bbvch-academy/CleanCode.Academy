@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="Samurai.cs" company="bbv Software Services AG">
+// <copyright file="StorageEnumerator.cs" company="bbv Software Services AG">
 //   Copyright (c) 2014
 //   
 //   Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,45 +14,58 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 // </copyright>
-// <summary>
-//   Defines the Samurai type.
-// </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace CleanCode.Naming.Warriors
+namespace CleanCode.Naming.Storages
 {
+    using System.Collections;
+    using System.Collections.Generic;
+
     using CleanCode.Naming.Weapons;
 
-    public class Samurai : IWarrior
+    public class StorageEnumerator : IEnumerator<IWeapon>
     {
-        private readonly IWeaponEquipmentStrategy weaponEquipmentStrategy;
+        private readonly WeaponCollection weaponCollection;
 
-        private readonly Skills skills;
+        private int index;
 
-        private IWeapon weapon;
-
-        public Samurai(IWeaponEquipmentStrategy weaponEquipmentStrategy, Skills skills)
+        public StorageEnumerator(WeaponCollection weaponCollection)
         {
-            this.weaponEquipmentStrategy = weaponEquipmentStrategy;
-            this.skills = skills;
+            this.weaponCollection = weaponCollection;
+
+            this.Reset();
         }
 
-        public int CombatLevel
+        public IWeapon Current
         {
             get
             {
-                return CombatLevelCalculator.Calculate(this.skills, this.weapon);
+                return this.weaponCollection.GetAt(this.index);
             }
         }
 
-        public void Equip(IWeapon weapon)
+        object IEnumerator.Current
         {
-            this.weapon = this.weaponEquipmentStrategy.Equip(weapon);
+            get
+            {
+                return this.Current;
+            }
         }
 
-        public string CombatMessage()
+        public bool MoveNext()
         {
-            return string.Format("Samurai is fighting with {0} ({1} attack points)", this.weapon.Name, this.CombatLevel);
+            this.index++;
+
+            return this.index < this.weaponCollection.Count;
+        }
+
+        public void Reset()
+        {
+            this.index = -1;
+        }
+
+        public void Dispose()
+        {
         }
     }
 }

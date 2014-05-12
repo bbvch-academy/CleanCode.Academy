@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="Instructor.cs" company="bbv Software Services AG">
-//   Copyright (c) 2013
+// <copyright file="Score.cs" company="bbv Software Services AG">
+//   Copyright (c) 2014
 //   
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -14,29 +14,30 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 // </copyright>
-// <summary>
-//   Defines the Instructor type.
-// </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace CleanCode.Naming.Barracks
+namespace CleanCode.Naming
 {
-    using CleanCode.Naming.Warriors;
-
-    /// <summary>
-    /// Instructor interface for new warrirors.
-    /// </summary>
-    public interface Instructor
+    public class Score
     {
-        /// <summary>
-        /// Instructs new warriors.
-        /// </summary>
-        /// <param name="o">The offense.</param>
-        /// <param name="d">The defense.</param>
-        /// <param name="p">The penalty.</param>
-        /// <returns>
-        /// A new warrior.
-        /// </returns>
-        Warrior instruct(double o, double d, int p);
+        public int Team1 { get; private set; }
+
+        public int Team2 { get; private set; }
+
+        public void ResetScore()
+        {
+            this.Team1 = 0;
+            this.Team2 = 0;
+        }
+
+        public void Team1Scores()
+        {
+            this.Team1++;
+        }
+
+        public void Team2Scores()
+        {
+            this.Team2++;
+        }
     }
 }

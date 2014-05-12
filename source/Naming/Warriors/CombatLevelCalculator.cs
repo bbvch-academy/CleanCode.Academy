@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="Weapon.cs" company="bbv Software Services AG">
-//   Copyright (c) 2013
+// <copyright file="CombatLevelCalculator.cs" company="bbv Software Services AG">
+//   Copyright (c) 2014
 //   
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -14,32 +14,22 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 // </copyright>
-// <summary>
-//   Defines Weapon.
-// </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace CleanCode.Naming.Weapons
+namespace CleanCode.Naming.Warriors
 {
-    /// <summary>
-    /// Defines Weapon.
-    /// </summary>
-    public interface Weapon
-    {
-        /// <summary>
-        /// Gets the attack points.
-        /// </summary>
-        /// <value>
-        /// The attack points.
-        /// </value>
-        double APoints { get; }
+    using System;
 
-        /// <summary>
-        /// Gets the label.
-        /// </summary>
-        /// <value>
-        /// The label.
-        /// </value>
-        string Label { get; }
+    using CleanCode.Naming.Weapons;
+
+    public static class CombatLevelCalculator
+    {
+        public static int Calculate(Skills skills, IWeapon weapon)
+        {
+            double totalAttackPoints = skills.AttackPoints + weapon.AttackPoints;
+            double totalDefensPoints = skills.DefensePoints / skills.HandicapPoints;
+
+            return Convert.ToInt32(Math.Ceiling(totalAttackPoints + totalDefensPoints));
+        }
     }
 }

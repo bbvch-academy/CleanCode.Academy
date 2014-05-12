@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="ElbLord.cs" company="bbv Software Services AG">
-//   Copyright (c) 2013
+// <copyright file="IWarriorFactory.cs" company="bbv Software Services AG">
+//   Copyright (c) 2014
 //   
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -14,35 +14,14 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 // </copyright>
-// <summary>
-//   An elf lord is a teacher of the elf. He will train new elbs.
-// </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
 namespace CleanCode.Naming.Barracks
 {
     using CleanCode.Naming.Warriors;
-    using CleanCode.Naming.Weapons;
 
-    /// <summary>
-    /// An herdir is a teacher of the elf. He will train new elbs.
-    /// </summary>
-    public class Herdir : Instructor
+    public interface IWarriorFactory
     {
-        /// <summary>
-        /// Instructs new warriors.
-        /// </summary>
-        /// <param name="o">The offense.</param>
-        /// <param name="d">The defense.</param>
-        /// <param name="p">The penalty.</param>
-        /// <returns>
-        /// A new warrior.
-        /// </returns>
-        public Warrior instruct(double o, double d, int p)
-        {
-            var sc = new SkillsContainer(o, d, p);
-
-            return new Elf(new BowHandlerImpl(), sc);
-        }
+        IWarrior Create(double attackPoints, double defensePoints, int handicapPoints);
     }
 }

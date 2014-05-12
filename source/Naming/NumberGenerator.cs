@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="SpearSmith.cs" company="bbv Software Services AG">
-//   Copyright (c) 2013
+// <copyright file="NumberGenerator.cs" company="bbv Software Services AG">
+//   Copyright (c) 2014
 //   
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -14,27 +14,39 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 // </copyright>
-// <summary>
-//   The spear smith.
-// </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace CleanCode.Naming.Factory
+namespace CleanCode.Naming
 {
-    using CleanCode.Naming.Weapons;
+    using System;
+    using System.Threading;
 
-    /// <summary>
-    /// The spear smith.
-    /// </summary>
-    public class SpearSmith : IWeaponCreator
+    public class NumberGenerator
     {
-        /// <summary>
-        /// Forges the new weapon.
-        /// </summary>
-        /// <param name="points">The attack points.</param>
-        public Weapon ForgeNewWeapon(double points)
+        private readonly Random random;
+
+        public NumberGenerator()
         {
-            return new SpearImpl(points);
+            this.random = new Random();
+        }
+
+        public int GenerateNumber(int smallestPossible, int greatestPossible)
+        {
+            WaitForRandomImprovement();
+
+            return this.random.Next(smallestPossible, greatestPossible + 1);
+        }
+
+        public double GeneratePercentValue()
+        {
+            WaitForRandomImprovement();
+
+            return this.random.NextDouble();
+        }
+
+        private static void WaitForRandomImprovement()
+        {
+            Thread.Sleep(30);
         }
     }
 }

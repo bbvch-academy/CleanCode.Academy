@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="Elf.cs" company="bbv Software Services AG">
-//   Copyright (c) 2013
+//   Copyright (c) 2014
 //   
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -14,76 +14,42 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 // </copyright>
-// <summary>
-//   Defines the Elf type.
-// </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
 namespace CleanCode.Naming.Warriors
 {
     using CleanCode.Naming.Weapons;
 
-    /// <summary>
-    /// The mighty and super cool with the bow Elf from lord of the rings!!!!
-    /// </summary>
-    /// <remarks>
-    /// The mighty elf is a master of the art of the bow. However, if he doesn't get his
-    /// favored killing tool, he will fight with his bare hands rather than using another weapon!
-    /// </remarks>
-    public class Elf : Warrior
+    public class Elf : IWarrior
     {
-        /// <summary>
-        /// The weapon handler
-        /// </summary>
-        private readonly WeaponHandler weaponHandler;
+        private readonly IWeaponEquipmentStrategy weaponEquipmentStrategy;
 
-        /// <summary>
-        /// The qualities
-        /// </summary>
-        private readonly SkillsContainer qualities;
+        private readonly Skills skills;
 
-        /// <summary>
-        /// The cool elbian killing tool.
-        /// </summary>
-        private Weapon coolElbianKillingTool;
+        private IWeapon weapon;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Elf" /> class.
-        /// </summary>
-        /// <param name="weaponHandler">The weapon handler.</param>
-        /// <param name="qualities">The qualities.</param>
-        public Elf(WeaponHandler weaponHandler, SkillsContainer qualities)
+        public Elf(IWeaponEquipmentStrategy weaponEquipmentStrategy, Skills skills)
         {
-            this.weaponHandler = weaponHandler;
-            this.qualities = qualities;
+            this.weaponEquipmentStrategy = weaponEquipmentStrategy;
+            this.skills = skills;
         }
 
-        /// <summary>
-        /// Combats the level.
-        /// </summary>
         public int CombatLevel
         {
             get
             {
-                return LevelCalculationHelper.DetermineCombatLevel(this.qualities, this.coolElbianKillingTool);
+                return CombatLevelCalculator.Calculate(this.skills, this.weapon);
             }
         }
 
-        /// <summary>
-        /// Equips the warrior with a cool killing tool ^^.
-        /// </summary>
-        /// <param name="weapon">The weapon.</param>
-        public void TakeKillingTool(Weapon weapon)
+        public void Equip(IWeapon weapon)
         {
-            this.coolElbianKillingTool = this.weaponHandler.HandleEquipmentOfWeapon(weapon);
+            this.weapon = this.weaponEquipmentStrategy.Equip(weapon);
         }
 
-        /// <summary>
-        /// Combats the level.
-        /// </summary>
-        public string CombatLevelText()
+        public string CombatMessage()
         {
-            return string.Format("Elf is fighting with {0} ({1} attack points)", this.coolElbianKillingTool.Label, this.CombatLevel);
+            return string.Format("Elf is fighting with {0} ({1} attack points)", this.weapon.Name, this.CombatLevel);
         }
     }
 }

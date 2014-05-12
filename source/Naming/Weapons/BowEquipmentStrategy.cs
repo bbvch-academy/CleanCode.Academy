@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="Iterator.cs" company="bbv Software Services AG">
-//   Copyright (c) 2013
+// <copyright file="BowEquipmentStrategy.cs" company="bbv Software Services AG">
+//   Copyright (c) 2014
 //   
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -14,32 +14,20 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 // </copyright>
-// <summary>
-//   Defines the Iterator type.
-// </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace CleanCode.Naming.Store
+namespace CleanCode.Naming.Weapons
 {
-    using CleanCode.Naming.Weapons;
-
-    /// <summary>
-    /// Weapon Iterator
-    /// </summary>
-    public interface Iterator
+    public class BowEquipmentStrategy : IWeaponEquipmentStrategy
     {
-        /// <summary>
-        /// Nexts this instance.
-        /// </summary>
-        /// <returns>a Weapon</returns>
-        Weapon next();
+        public IWeapon Equip(IWeapon weapon)
+        {
+            if (weapon is Bow)
+            {
+                return weapon;
+            }
 
-        /// <summary>
-        /// Determines whether this instance has next.
-        /// </summary>
-        /// <returns>
-        ///   <c>true</c> if this instance has next; otherwise, <c>false</c>.
-        /// </returns>
-        bool hasNext();
+            return new Fists();
+        }
     }
 }

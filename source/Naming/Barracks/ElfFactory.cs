@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="WeaponHandler.cs" company="bbv Software Services AG">
-//   Copyright (c) 2013
+// <copyright file="ElfFactory.cs" company="bbv Software Services AG">
+//   Copyright (c) 2014
 //   
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -14,23 +14,20 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 // </copyright>
-// <summary>
-//   Weapon handler interface.
-// </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace CleanCode.Naming.Weapons
+namespace CleanCode.Naming.Barracks
 {
-    /// <summary>
-    /// Weapon handler interface.
-    /// </summary>
-    public interface WeaponHandler
+    using CleanCode.Naming.Warriors;
+    using CleanCode.Naming.Weapons;
+
+    public class ElfFactory : IWarriorFactory
     {
-        /// <summary>
-        /// Handles the equipment of a specific weapon.
-        /// </summary>
-        /// <param name="weapon">The weapon.</param>
-        /// <returns>The effective weapon of a warrior.</returns>
-        Weapon HandleEquipmentOfWeapon(Weapon weapon);
+        public IWarrior Create(double attackPoints, double defensePoints, int handicapPoints)
+        {
+            var skills = new Skills(attackPoints, defensePoints, handicapPoints);
+
+            return new Elf(new BowEquipmentStrategy(), skills);
+        }
     }
 }

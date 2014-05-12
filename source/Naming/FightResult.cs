@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="SwordHandlerImp.cs" company="bbv Software Services AG">
-//   Copyright (c) 2013
+// <copyright file="FightResult.cs" company="bbv Software Services AG">
+//   Copyright (c) 2014
 //   
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -14,31 +14,25 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 // </copyright>
-// <summary>
-//   Sword fighter weapon handler.
-// </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace CleanCode.Naming.Weapons
+namespace CleanCode.Naming
 {
-    /// <summary>
-    /// Sword fighter weapon handler.
-    /// </summary>
-    public class SwordHandlerImpl : WeaponHandler
+    public class FightResult
     {
-        /// <summary>
-        /// Handles the equipment of the sword.
-        /// </summary>
-        /// <param name="weapon">The weapon for a sword fighter.</param>
-        /// <returns>If weapon is a sword then it will be utilized; otherwise fists.</returns>
-        public Weapon HandleEquipmentOfWeapon(Weapon weapon)
+        public FightResult(bool warriorOfTeam1Wins)
         {
-            if (weapon is SwordImpl)
-            {
-                return weapon;
-            }
+            this.WarriorOfTeam1Won = warriorOfTeam1Wins;
+        }
 
-            return new FistsImpl();
+        public bool WarriorOfTeam1Won { get; private set; }
+
+        public bool WarriorOfTeam2Won
+        {
+            get
+            {
+                return !this.WarriorOfTeam1Won;
+            }
         }
     }
 }

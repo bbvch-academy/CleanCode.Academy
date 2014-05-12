@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="Program.cs" company="bbv Software Services AG">
-//   Copyright (c) 2013
+//   Copyright (c) 2014
 //   
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -14,46 +14,36 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 // </copyright>
-// <summary>
-//   Program.
-// </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
 namespace CleanCode.Naming
 {
     using System;
 
-    /// <summary>
-    /// Program.
-    /// </summary>
-    class Program
+    public class Program
     {
-        /// <summary>
-        /// Mains the specified args.
-        /// </summary>
-        /// <param name="args">The args.</param>
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            GameEngine game = new GameEngine();
+            var game = new GameEngine();
 
-            game.PrepareNewGame();
-            game.RecruitWarriors();
-            var scoreUtility = game.RunGame();
+            game.Initialize();
+            game.SetupTeams();
+            
+            Score score = game.RunGame();
 
-            Console.WriteLine(" ");
-            Console.Write("      ");
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.Write("Team1");
-            Console.ForegroundColor = ConsoleColor.Gray;
-            Console.Write("  vs  ");
-            Console.ForegroundColor = ConsoleColor.Magenta;
-            Console.WriteLine("Team2");
-            Console.ForegroundColor = ConsoleColor.Gray;
-            Console.WriteLine("        {0}          {1}", scoreUtility.Team1, scoreUtility.Team2);
-            Console.WriteLine(" ");
-            Console.WriteLine(" ");
+            WriteGameResultToConsole(score);
+
             Console.Write("Press <ENTER> to exit");
             Console.ReadLine();
+        }
+
+        private static void WriteGameResultToConsole(Score score)
+        {
+            Console.WriteLine(" ");
+            Console.WriteLine("      Team1  vs  Team2");
+            Console.WriteLine("        {0}          {1}", score.Team1, score.Team2);
+            Console.WriteLine(" ");
+            Console.WriteLine(" ");
         }
     }
 }

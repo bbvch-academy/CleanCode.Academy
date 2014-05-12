@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="BowHandlerImpl.cs" company="bbv Software Services AG">
-//   Copyright (c) 2013
+// <copyright file="IWeapon.cs" company="bbv Software Services AG">
+//   Copyright (c) 2014
 //   
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -14,31 +14,14 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 // </copyright>
-// <summary>
-//   Archer weapon handler.
-// </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
 namespace CleanCode.Naming.Weapons
 {
-    /// <summary>
-    /// Archer weapon handler.
-    /// </summary>
-    public class BowHandlerImpl : WeaponHandler
+    public interface IWeapon
     {
-        /// <summary>
-        /// Handles the equipment of the bow.
-        /// </summary>
-        /// <param name="weapon">The weapon for a archer.</param>
-        /// <returns>If weapon is a bow then it will be utilized; otherwise fists.</returns>
-        public Weapon HandleEquipmentOfWeapon(Weapon weapon)
-        {
-            if (weapon is BowImpl)
-            {
-                return weapon;
-            }
+        double AttackPoints { get; }
 
-            return new FistsImpl();
-        }
+        string Name { get; }
     }
 }

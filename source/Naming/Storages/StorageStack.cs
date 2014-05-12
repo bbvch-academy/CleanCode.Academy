@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="Sensei.cs" company="bbv Software Services AG">
-//   Copyright (c) 2013
+// <copyright file="StorageStack.cs" company="bbv Software Services AG">
+//   Copyright (c) 2014
 //   
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -14,35 +14,40 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 // </copyright>
-// <summary>
-//   A sensei is a teacher of the samurai. He will train new samurais.
-// </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace CleanCode.Naming.Barracks
+namespace CleanCode.Naming.Storages
 {
-    using CleanCode.Naming.Warriors;
+    using System.Collections.Generic;
+
     using CleanCode.Naming.Weapons;
 
-    /// <summary>
-    /// A sensei is a teacher of the samurai. He will train new samurais.
-    /// </summary>
-    public class Sensei : Instructor
+    public class StorageStack
     {
-        /// <summary>
-        /// Instructs new warriors.
-        /// </summary>
-        /// <param name="o">The offense.</param>
-        /// <param name="d">The defense.</param>
-        /// <param name="p">The penalty.</param>
-        /// <returns>
-        /// A new warrior.
-        /// </returns>
-        public Warrior instruct(double o, double d, int p)
-        {
-            var sc = new SkillsContainer(o, d, p);
+        private readonly WeaponCollection weaponCollection;
 
-            return new Samurai(new SwordHandlerImpl(), sc);
+        public StorageStack()
+        {
+            this.weaponCollection = new WeaponCollection();
+        }
+
+        public IEnumerator<IWeapon> GetEnumerator()
+        {
+            return new StorageEnumerator(this.weaponCollection);
+        }
+
+        public void Push(IWeapon newWeapon)
+        {
+            this.weaponCollection.Add(newWeapon);
+        }
+
+        public IWeapon Pop()
+        {
+            IWeapon popedWeapon = this.weaponCollection.GetAt(this.weaponCollection.Count - 1);
+
+            this.weaponCollection.RemoveAt(this.weaponCollection.Count - 1);
+
+            return popedWeapon;
         }
     }
 }

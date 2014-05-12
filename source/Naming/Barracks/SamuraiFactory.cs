@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="SwordSmith.cs" company="bbv Software Services AG">
-//   Copyright (c) 2013
+// <copyright file="SamuraiFactory.cs" company="bbv Software Services AG">
+//   Copyright (c) 2014
 //   
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -14,27 +14,20 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 // </copyright>
-// <summary>
-//   Defines the SwordSmith type.
-// </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace CleanCode.Naming.Factory
+namespace CleanCode.Naming.Barracks
 {
+    using CleanCode.Naming.Warriors;
     using CleanCode.Naming.Weapons;
 
-    /// <summary>
-    /// The sword smith
-    /// </summary>
-    public class SwordSmith : IWeaponCreator
+    public class SamuraiFactory : IWarriorFactory
     {
-        /// <summary>
-        /// Forges the new weapon.
-        /// </summary>
-        /// <param name="points">The attack points.</param>
-        public Weapon ForgeNewWeapon(double points)
+        public IWarrior Create(double attackPoints, double defensePoints, int handicapPoints)
         {
-            return new SwordImpl(points);
+            var skills = new Skills(attackPoints, defensePoints, handicapPoints);
+
+            return new Samurai(new SwordEquipmentStrategy(), skills);
         }
     }
 }

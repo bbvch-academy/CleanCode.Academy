@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="Warrior.cs" company="bbv Software Services AG">
-//   Copyright (c) 2013
+// <copyright file="SwordFactory.cs" company="bbv Software Services AG">
+//   Copyright (c) 2014
 //   
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -14,34 +14,17 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 // </copyright>
-// <summary>
-//   Defines the Warrior type.
-// </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace CleanCode.Naming.Warriors
+namespace CleanCode.Naming.Factory
 {
     using CleanCode.Naming.Weapons;
 
-    /// <summary>
-    /// Warrior interface.
-    /// </summary>
-    public interface Warrior
+    public class SwordFactory : IWeaponFactory
     {
-        /// <summary>
-        /// Combats the level.
-        /// </summary>
-        int CombatLevel { get; }
-
-        /// <summary>
-        /// Equips the warrior with a cool killing tool ^^.
-        /// </summary>
-        /// <param name="weapon">The weapon.</param>
-        void TakeKillingTool(Weapon weapon);
-
-        /// <summary>
-        /// Combats the level.
-        /// </summary>
-        string CombatLevelText();
+        public IWeapon Create(double weaponAttackPoints)
+        {
+            return new Sword(weaponAttackPoints);
+        }
     }
 }

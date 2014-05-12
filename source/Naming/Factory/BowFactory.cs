@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="AssemblyInfo.cs" company="bbv Software Services AG">
+// <copyright file="BowFactory.cs" company="bbv Software Services AG">
 //   Copyright (c) 2014
 //   
 //   Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,19 +14,17 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 // </copyright>
-// <summary>
-//   AssemblyInfo.cs
-// </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-using System.Reflection;
-using System.Runtime.InteropServices;
+namespace CleanCode.Naming.Factory
+{
+    using CleanCode.Naming.Weapons;
 
-[assembly: AssemblyTitle("CleanCode.Naming")]
-[assembly: AssemblyCompany("bbv Software Services")]
-[assembly: AssemblyProduct("CleanCode.Naming")]
-[assembly: AssemblyCopyright("Copyright © bbv Software Services 2013")]
-[assembly: ComVisible(false)]
-[assembly: Guid("59a0c082-1304-4dd1-bd09-869ab92ab796")]
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+    public class BowFactory : IWeaponFactory
+    {
+        public IWeapon Create(double weaponAttackPoints)
+        {
+            return new Bow(weaponAttackPoints);
+        }
+    }
+}

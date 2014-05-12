@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="FistImpl.cs" company="bbv Software Services AG">
-//   Copyright (c) 2013
+// <copyright file="Spear.cs" company="bbv Software Services AG">
+//   Copyright (c) 2014
 //   
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -14,43 +14,24 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 // </copyright>
-// <summary>
-//   Defines the FistImpl type.
-// </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
 namespace CleanCode.Naming.Weapons
 {
-    /// <summary>
-    /// Fist implementation
-    /// </summary>
-    public class FistsImpl : Weapon
+    public class Spear : IWeapon
     {
-        /// <summary>
-        /// Gets the attack points.
-        /// </summary>
-        /// <value>
-        /// The attack points.
-        /// </value>
-        public double APoints
+        public Spear(double attackPoints)
         {
-            get
-            {
-                return 0;
-            }
+            this.AttackPoints = attackPoints;
         }
 
-        /// <summary>
-        /// Gets the label.
-        /// </summary>
-        /// <value>
-        /// The label.
-        /// </value>
-        public string Label
+        public double AttackPoints { get; private set; }
+
+        public string Name
         {
             get
             {
-                return "fists";
+                return "spear";
             }
         }
     }
