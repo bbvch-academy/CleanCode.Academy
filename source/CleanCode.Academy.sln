@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.30110.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Fundamentals", "Fundamentals", "{5F32366E-A2A3-4DA5-831C-7C597890E33E}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 Fundamentals", "1 Fundamentals", "{5F32366E-A2A3-4DA5-831C-7C597890E33E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Naming.Workshop", "Naming\Naming.Workshop.csproj", "{30190AC1-01F6-4EE8-B4E1-80711F1E186B}"
 EndProject
@@ -12,7 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{BC0B7F
 		.nuget\packages.config = .nuget\packages.config
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testing", "Testing", "{FECBB58C-9683-4FCF-8879-BBDFA0964981}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 Testing", "3 Testing", "{FECBB58C-9683-4FCF-8879-BBDFA0964981}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testing.Sample", "Testing.Sample\Testing.Sample.csproj", "{C035BB11-300D-4B30-BF01-13551883A790}"
 EndProject
