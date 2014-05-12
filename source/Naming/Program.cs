@@ -41,7 +41,14 @@ namespace CleanCode.Naming
             var scoreUtility = game.RunGame();
 
             Console.WriteLine(" ");
-            Console.WriteLine("      Team1  vs  Team2");
+            Console.Write("      ");
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.Write("Team1");
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.Write("  vs  ");
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine("Team2");
+            Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine("        {0}          {1}", scoreUtility.Team1, scoreUtility.Team2);
             Console.WriteLine(" ");
             Console.WriteLine(" ");

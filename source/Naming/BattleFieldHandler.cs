@@ -23,6 +23,7 @@ namespace CleanCode.Naming
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
 
     using CleanCode.Naming.Warriors;
 
@@ -99,13 +100,24 @@ namespace CleanCode.Naming
             Warrior warrior1 = this.team1[i];
             Warrior warrior2 = this.team2[i];
 
-            warrior1.CombatLevelText();
             warrior2.CombatLevelText();
 
             Console.WriteLine();
-            Console.WriteLine(warrior1.CombatLevelText());
+            string combatLevelText = warrior1.CombatLevelText();
+            string[] combatLevelTextParts = combatLevelText.Split(' ');
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.Write(combatLevelTextParts[0]);
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.WriteLine(combatLevelText.Substring(combatLevelTextParts[0].Length));
             Console.WriteLine("                vs.");
-            Console.WriteLine(warrior2.CombatLevelText());
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            combatLevelText = warrior2.CombatLevelText();
+            combatLevelTextParts = combatLevelText.Split(' ');
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.Write(combatLevelTextParts[0]);
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.WriteLine(combatLevelText.Substring(combatLevelTextParts[0].Length));
+            Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine();
 
             // A draw will be ignored -> advantage team2
