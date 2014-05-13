@@ -28,14 +28,10 @@ namespace CleanCode.Naming
         private readonly IList<IWarrior> warriorsOfTeam1;
         private readonly IList<IWarrior> warriorsOfTeam2;
 
-        private int currentRound;
-
         public BattleField()
         {
             this.warriorsOfTeam1 = new List<IWarrior>();
             this.warriorsOfTeam2 = new List<IWarrior>();
-
-            this.currentRound = 0;
         }
 
         public int RoundCount
@@ -64,13 +60,10 @@ namespace CleanCode.Naming
             IWarrior secondWarrior = this.warriorsOfTeam2[round];
 
             Console.WriteLine();
-            Console.WriteLine("Round {0}", round + 1);
             Console.WriteLine(firstWarrior.CombatMessage());
             Console.WriteLine("                vs.");
             Console.WriteLine(secondWarrior.CombatMessage());
             Console.WriteLine();
-
-            this.currentRound = round;
 
             // A draw will be ignored -> advantage team2
             return new FightResult(WarriorOfTeam1Wins(firstWarrior, secondWarrior));
@@ -85,7 +78,7 @@ namespace CleanCode.Naming
         {
             if (i >= this.RoundCount)
             {
-                string message = string.Format("round {0}: there are not enough warriors for a fight...", this.currentRound);
+                string message = string.Format("round {0}: there are not enough warriors for a fight...", i);
 
                 throw new InvalidOperationException(message);
             }
