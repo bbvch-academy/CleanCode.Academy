@@ -23,7 +23,6 @@ namespace CleanCode.Naming
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
 
     using CleanCode.Naming.Warriors;
 
@@ -54,7 +53,6 @@ namespace CleanCode.Naming
         {
             this.team1 = new List<Warrior>();
             this.team2 = new List<Warrior>();
-            this.currentRound = 0;
         }
 
         /// <summary>
@@ -96,7 +94,6 @@ namespace CleanCode.Naming
         public FightEnd LetThemFight(int i)
         {
             this.AskReferee(i);
-            this.currentRound = i;
 
             Warrior warrior1 = this.team1[i];
             Warrior warrior2 = this.team2[i];
@@ -134,7 +131,7 @@ namespace CleanCode.Naming
         {
             if (i >= this.NumberOfRounds)
             {
-                string message = string.Format("round {0}: there are not enough warriors for a fight...", this.currentRound);
+                string message = string.Format("round {0}: there are not enough warriors for a fight...", i);
 
                 throw new InvalidOperationException(message);
             }
