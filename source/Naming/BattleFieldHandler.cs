@@ -96,6 +96,7 @@ namespace CleanCode.Naming
         public FightEnd LetThemFight(int i)
         {
             this.AskReferee(i);
+            this.currentRound = i;
 
             Warrior warrior1 = this.team1[i];
             Warrior warrior2 = this.team2[i];
