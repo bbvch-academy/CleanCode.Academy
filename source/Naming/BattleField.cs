@@ -28,7 +28,7 @@ namespace CleanCode.Naming
         private readonly IList<IWarrior> warriorsOfTeam1;
         private readonly IList<IWarrior> warriorsOfTeam2;
 
-        private readonly int currentRound;
+        private int currentRound;
 
         public BattleField()
         {
@@ -64,10 +64,13 @@ namespace CleanCode.Naming
             IWarrior secondWarrior = this.warriorsOfTeam2[round];
 
             Console.WriteLine();
+            Console.WriteLine("Round {0}", round + 1);
             Console.WriteLine(firstWarrior.CombatMessage());
             Console.WriteLine("                vs.");
             Console.WriteLine(secondWarrior.CombatMessage());
             Console.WriteLine();
+
+            this.currentRound = round;
 
             // A draw will be ignored -> advantage team2
             return new FightResult(WarriorOfTeam1Wins(firstWarrior, secondWarrior));
