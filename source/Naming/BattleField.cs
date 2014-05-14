@@ -28,14 +28,10 @@ namespace CleanCode.Naming
         private readonly IList<IWarrior> warriorsOfTeam1;
         private readonly IList<IWarrior> warriorsOfTeam2;
 
-        private readonly int currentRound;
-
         public BattleField()
         {
             this.warriorsOfTeam1 = new List<IWarrior>();
             this.warriorsOfTeam2 = new List<IWarrior>();
-
-            this.currentRound = 0;
         }
 
         public int RoundCount
@@ -82,7 +78,7 @@ namespace CleanCode.Naming
         {
             if (i >= this.RoundCount)
             {
-                string message = string.Format("round {0}: there are not enough warriors for a fight...", this.currentRound);
+                string message = string.Format("round {0}: there are not enough warriors for a fight...", i);
 
                 throw new InvalidOperationException(message);
             }
