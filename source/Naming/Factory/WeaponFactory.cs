@@ -38,7 +38,7 @@ namespace CleanCode.Naming.Factory
 
         public IWeapon ForgeNewWeapon()
         {
-            int predicatedWeaponCode = this.weaponIndication.GenerateNumber(0, 2);
+            int predicatedWeaponCode = this.weaponIndication.GenerateNumberBetween(0, 2);
 
             var utility = new NumberGenerator();
 

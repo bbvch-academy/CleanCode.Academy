@@ -30,7 +30,7 @@ namespace CleanCode.Naming
             this.random = new Random();
         }
 
-        public int GenerateNumber(int smallestPossible, int greatestPossible)
+        public int GenerateNumberBetween(int smallestPossible, int greatestPossible)
         {
             WaitForRandomImprovement();
 

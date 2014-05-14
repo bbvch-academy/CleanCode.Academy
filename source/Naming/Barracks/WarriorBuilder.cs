@@ -126,7 +126,7 @@ namespace CleanCode.Naming.Barracks
 
             do
             {
-                generatedWarriorCode = numberGenerator.GenerateNumber(0, 2);
+                generatedWarriorCode = numberGenerator.GenerateNumberBetween(0, 2);
 
                 System.Threading.Thread.Sleep(10); // improves random generation
             }

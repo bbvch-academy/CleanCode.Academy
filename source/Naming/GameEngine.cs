@@ -35,6 +35,15 @@ namespace CleanCode.Naming
         private const int WarriorsPerTeam = 5;
         private const int WeaponsInStorage = WarriorsPerTeam * 2;
 
+        private const int MinimalAttackPoints = 1;
+        private const int MaximalAttackPointsPossible = 4;
+
+        private const int MinimalHandicapPoints = 2;
+        private const int MaximalHandicapPointsPossible = 7;
+
+        private const int MinimalDefensePoints = 7;
+        private const int MaximalDefensePointsPossible = 12;
+
         private readonly WeaponFactory weaponFactory;
         private readonly StorageStack storageStack;
         private readonly BattleField battleField;
@@ -68,8 +77,8 @@ namespace CleanCode.Naming
         {
             for (int i = 0; i < WarriorsPerTeam; i++)
             {
-                var warriorOfTeam1 = this.CreateWarrior();
-                var warriorOfTeam2 = this.CreateWarrior();
+                IWarrior warriorOfTeam1 = this.CreateWarrior();
+                IWarrior warriorOfTeam2 = this.CreateWarrior();
 
                 this.battleField.AddToTeam1(warriorOfTeam1);
                 this.battleField.AddToTeam2(warriorOfTeam2);
@@ -120,17 +129,17 @@ namespace CleanCode.Naming
 
         private int GenerateAttackPoints()
         {
-            return this.numberGenerator.GenerateNumber(1, 4);
+            return this.numberGenerator.GenerateNumberBetween(MinimalAttackPoints, MaximalAttackPointsPossible);
         }
 
         private int GenerateHandicapPoints()
         {
-            return this.numberGenerator.GenerateNumber(2, 7);
+            return this.numberGenerator.GenerateNumberBetween(MinimalHandicapPoints, MaximalHandicapPointsPossible);
         }
 
         private int GenerateDefensePoints()
         {
-            return this.numberGenerator.GenerateNumber(7, 12);
+            return this.numberGenerator.GenerateNumberBetween(MinimalDefensePoints, MaximalDefensePointsPossible);
         }
     }
 }
