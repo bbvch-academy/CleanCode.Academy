@@ -42,7 +42,7 @@ namespace CleanCode.Design.OutParameters
 
             InvoiceParseResult result = this.testee.TryParse(CreateInvoice(Customer, Amount));
 
-            result.Invoice.ShouldHave().AllProperties().EqualTo(new Invoice(Customer, Amount));
+            result.Invoice.ShouldBeEquivalentTo(new Invoice(Customer, Amount));
         }
 
         [Test]
