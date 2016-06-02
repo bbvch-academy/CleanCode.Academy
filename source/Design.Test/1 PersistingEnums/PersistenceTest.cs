@@ -41,7 +41,7 @@ namespace CleanCode.Design.PersistingEnums
             this.testee.Save(person);
             Person loadedPerson = this.testee.Load(Name);
 
-            loadedPerson.ShouldHave().AllProperties().EqualTo(new Person { Name = person.Name, Title = person.Title });
+            loadedPerson.ShouldBeEquivalentTo(new Person { Name = person.Name, Title = person.Title });
         }
     }
 }
