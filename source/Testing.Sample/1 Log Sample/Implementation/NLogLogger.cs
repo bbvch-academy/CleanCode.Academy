@@ -38,9 +38,7 @@ namespace CleanCode.Testing.Sample.Implementation
 
         public void Fatal(Exception exception, string logMessageFormatString, params object[] args)
         {
-            string formattedMessage = FormatMessage(logMessageFormatString, args);
-
-            this.logger.FatalException(formattedMessage, exception);
+            this.logger.Fatal(exception, logMessageFormatString, args);
         }
 
         public void Error(string logMessageFormatString, params object[] args)
@@ -50,9 +48,7 @@ namespace CleanCode.Testing.Sample.Implementation
 
         public void Error(Exception exception, string logMessageFormatString, params object[] args)
         {
-            string formattedMessage = FormatMessage(logMessageFormatString, args);
-
-            this.logger.ErrorException(formattedMessage, exception);
+            this.logger.Error(exception, logMessageFormatString, args);
         }
 
         public void Warn(string logMessageFormatString, params object[] args)
@@ -62,9 +58,7 @@ namespace CleanCode.Testing.Sample.Implementation
 
         public void Warn(Exception exception, string logMessageFormatString, params object[] args)
         {
-            string formattedMessage = FormatMessage(logMessageFormatString, args);
-
-            this.logger.WarnException(formattedMessage, exception);
+            this.logger.Warn(exception, logMessageFormatString, args);
         }
 
         public void Info(string logMessageFormatString, params object[] args)
@@ -74,9 +68,7 @@ namespace CleanCode.Testing.Sample.Implementation
 
         public void Info(Exception exception, string logMessageFormatString, params object[] args)
         {
-            string formattedMessage = FormatMessage(logMessageFormatString, args);
-
-            this.logger.Info(formattedMessage, exception);
+            this.logger.Info(exception, logMessageFormatString, args);
         }
 
         public void Debug(string logMessageFormatString, params object[] args)
@@ -86,9 +78,7 @@ namespace CleanCode.Testing.Sample.Implementation
 
         public void Debug(Exception exception, string logMessageFormatString, params object[] args)
         {
-            string formattedMessage = FormatMessage(logMessageFormatString, args);
-
-            this.logger.DebugException(formattedMessage, exception);
+            this.logger.Debug(exception, logMessageFormatString, args);
         }
 
         public void Trace(string logMessageFormatString, params object[] args)
@@ -98,14 +88,7 @@ namespace CleanCode.Testing.Sample.Implementation
 
         public void Trace(Exception exception, string logMessageFormatString, params object[] args)
         {
-            string formattedMessage = FormatMessage(logMessageFormatString, args);
-
-            this.logger.DebugException(formattedMessage, exception);
-        }
-
-        private static string FormatMessage(string message, object[] args)
-        {
-            return args == null || args.Length == 0 ? message : string.Format(message, args);
+            this.logger.Trace(exception, logMessageFormatString, args);
         }
     }
 }
