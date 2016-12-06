@@ -1,0 +1,13 @@
+//
+// (c) Copyright bbv Software Services AG
+//
+
+(c) Copyright bbv Software Services AG - bbv Academy
+
+= Clean Code (Speaker Notes)
+
+// Enables Numbering for seaction titles
+:numbered:
+
+// 1 Log Sample
+include::1 Log Sample/Speaker Notes.adoc[]

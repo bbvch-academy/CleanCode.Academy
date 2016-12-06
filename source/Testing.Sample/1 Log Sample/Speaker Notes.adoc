@@ -1,0 +1,88 @@
+//
+// (c) Copyright bbv Software Services AG
+//
+
+== Log Sample
+
+In diesem Beispiel geht es darum zu zeigen, wie Clean Code auch im Logging
+angewendet werden kann.
+
+.Beschreibung der Klassen
+[options="header",cols="literal,asciidoc,literal",grid="cols"]
+|===
+| Klasse | Beschreibung | Zeigen für Demo
+| ConsoleLogger.cs | ILogger-Implementation. Logt auf Konsole. | nein
+| ILogger.cs | Logger-Interface. | nein
+| NLogLogger.cs | NLog-Implementation. Log gemäss NLog-Konfiguration. | nein
+| OrderCreator.cs | Beispiel einer Klasse, die nach unseren Vorstellungen
+von CleanCoe implementiert wurde. | *ja*
+| OrderCreatorLogExtensionMethods.cs | Extensionklasse, welche das eigentliche
+Loggin übernimmt. | *ja*
+| OrderItem.cs | Immutable DTO-Klasse | *ja* wegen Immutability
+|	OrderRequest.cs | Immutable DTO-Klasse für Request | *ja* als Request.
+|===
+
+=== OrdnerCreator.cs
+
+Mehrere Aspkete/Prinzipien wurden umgesetzt:
+
+* private Klasse (Command) innerhalb der Implementation um Methoden ohne
+Parameter nacheinander aufrufen zu können
+* Prosatext für Implementation. So eine Implementierung spricht für sich:
+
+[source,csharp]
+----
+public void Execute()
+{
+    this.EnsureOrderNotNull();
+    this.EnsureCustomerNameIsSet();
+    this.EnsureCustomerAddressIsSet();
+
+    this.WarnIfOrderAmountOver(OrderAmountLimit);
+
+    this.ProcessOrder();
+}
+----
+
+* Loggin wird über Extensionmethoden umgesetzt. Der Code wirkt leserlicher und
+man hat keine "Strings".
+
+* Das Lesen dieser Methode ist auch einfacher, da wir weniger Zeit verschwenden
+um den vollständigen Log-Text zu lesen.
+
+[source,csharp]
+----
+private void WarnIfOrderAmountOver(int limit)
+{
+    decimal orderAmount = this.CalculateOrderAmount();
+
+    if (orderAmount > limit)
+    {
+        this.logger.LogOrderExceedsLimit(this.order, orderAmount, limit);
+    }
+}
+----
+
+=== OrderItem.cs
+
+Unterscheidung zwischen echter Immutability (inkl. readonly Backendfiled) und
+deklarativer Immutability (gemäss Beispiel). Deklarative Immutability reicht.
+
+[source,csharp]
+----
+public class OrderItem
+{
+    public OrderItem(int identifier, string name, decimal price)
+    {
+        this.Identifier = identifier;
+        this.Name = name;
+        this.Price = price;
+    }
+
+    public int Identifier { get; private set; }
+
+    public string Name { get; private set; }
+
+    public decimal Price { get; private set; }
+}
+----
