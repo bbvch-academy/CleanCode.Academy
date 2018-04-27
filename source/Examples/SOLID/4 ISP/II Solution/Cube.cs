@@ -11,6 +11,13 @@
 
         public double GetArea()
         {
+            //      .———.
+            //      | a²|
+            //  .———|———|———.———.
+            //  | a²| a²| a²| a²|
+            //  '———|———|———'———'
+            //      | a²|
+            //      '———'
             return this.length * this.length * 6;
         }
 

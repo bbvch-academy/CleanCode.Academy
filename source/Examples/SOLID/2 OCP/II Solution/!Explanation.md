@@ -107,7 +107,7 @@ individual shape areas.
 ```
 
 With this appreach we do not need to touch the `AreaCalculator` class anymore
-if we add additional shapes. Further the `AreaCalculator` even does need to no
-any concrete implementation of the `IShape` interface. We can even hide the 
+if we add additional shapes. Further the `AreaCalculator` even does not need to
+depend on any concrete implementations of the `IShape` interface. We can even hide the 
 properties of the shape classes because there are not needed by the 
 `AreaCalculator` class anymore and further loosen some dependencies.

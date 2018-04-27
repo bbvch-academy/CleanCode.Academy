@@ -14,6 +14,7 @@ The following example uses a `AreaCalculator` to calculate the area of shapes.
  |----------------------------------|  
  |+AreaCalculator(shapes : object[])|  
  |+Sum() : double                   |  
+ |+WriteToConsole()                 |  
  `----------------------------------'  
          |                 |          
          v                 v          
@@ -49,5 +50,5 @@ which is in charge of formatting the output in the desigred format.
 
 This enables us to add multiple formatted output possibility at one point
 (within one class). Additionaly we are not restricted to the Console as
-output medium any more, but are even enable to write the formatted result
+output medium any more, but are even enabled to write the formatted result
 to a file or other destination.
