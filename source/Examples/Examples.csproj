@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{30A8988D-5FDB-4DF4-B5E8-62646194A02D}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>bbv.Examples</RootNamespace>
+    <AssemblyName>bbv.Examples</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SOLID\1 SRP\I Violation\AreaCalculator.cs" />
+    <Compile Include="SOLID\1 SRP\I Violation\Circle.cs" />
+    <Compile Include="SOLID\1 SRP\I Violation\Execution.cs" />
+    <Compile Include="SOLID\1 SRP\I Violation\Square.cs" />
+    <Compile Include="SOLID\2 OCP\I Violation\AreaCalculator.cs" />
+    <Compile Include="SOLID\2 OCP\I Violation\Circle.cs" />
+    <Compile Include="SOLID\2 OCP\I Violation\EquilateralTriangle.cs" />
+    <Compile Include="SOLID\2 OCP\I Violation\Execution.cs" />
+    <Compile Include="SOLID\2 OCP\I Violation\Square.cs" />
+    <Compile Include="SOLID\1 SRP\II Solution\Execution.cs" />
+    <Compile Include="SOLID\1 SRP\II Solution\AreaCalculator.cs" />
+    <Compile Include="SOLID\1 SRP\II Solution\Circle.cs" />
+    <Compile Include="SOLID\1 SRP\II Solution\OutputFormatter.cs" />
+    <Compile Include="SOLID\1 SRP\II Solution\Square.cs" />
+    <Compile Include="SOLID\2 OCP\II Solution\AreaCalculator.cs" />
+    <Compile Include="SOLID\2 OCP\II Solution\Circle.cs" />
+    <Compile Include="SOLID\2 OCP\II Solution\EquilateralTriangle.cs" />
+    <Compile Include="SOLID\2 OCP\II Solution\Execution.cs" />
+    <Compile Include="SOLID\2 OCP\II Solution\IShape.cs" />
+    <Compile Include="SOLID\2 OCP\II Solution\Square.cs" />
+    <Compile Include="SOLID\3 LSP\I Violation\AreaCalculator.cs" />
+    <Compile Include="SOLID\3 LSP\I Violation\EquilateralTriangle.cs" />
+    <Compile Include="SOLID\3 LSP\I Violation\Execution.cs" />
+    <Compile Include="SOLID\3 LSP\I Violation\Triangle.cs" />
+    <Compile Include="SOLID\3 LSP\II Solution\AreaCalculator.cs" />
+    <Compile Include="SOLID\3 LSP\II Solution\EquilateralTriangle.cs" />
+    <Compile Include="SOLID\3 LSP\II Solution\Execution.cs" />
+    <Compile Include="SOLID\3 LSP\II Solution\RegularTriangle.cs" />
+    <Compile Include="SOLID\3 LSP\II Solution\Shape.cs" />
+    <Compile Include="SOLID\4 ISP\I Violation\Cube.cs" />
+    <Compile Include="SOLID\4 ISP\I Violation\Execution.cs" />
+    <Compile Include="SOLID\4 ISP\I Violation\IShape.cs" />
+    <Compile Include="SOLID\4 ISP\I Violation\Square.cs" />
+    <Compile Include="SOLID\4 ISP\II Solution\Cube.cs" />
+    <Compile Include="SOLID\4 ISP\II Solution\Execution.cs" />
+    <Compile Include="SOLID\4 ISP\II Solution\IShape.cs" />
+    <Compile Include="SOLID\4 ISP\II Solution\ISolidShape.cs" />
+    <Compile Include="SOLID\4 ISP\II Solution\Square.cs" />
+    <Compile Include="SOLID\5 DIP\I Violation\EMail.cs" />
+    <Compile Include="SOLID\5 DIP\I Violation\Execution.cs" />
+    <Compile Include="SOLID\5 DIP\I Violation\Notification.cs" />
+    <Compile Include="SOLID\5 DIP\I Violation\SMS.cs" />
+    <Compile Include="SOLID\5 DIP\II Solution\IMessage.cs" />
+    <Compile Include="SOLID\5 DIP\II Solution\Implementations\EMail.cs" />
+    <Compile Include="SOLID\5 DIP\II Solution\Execution.cs" />
+    <Compile Include="SOLID\5 DIP\II Solution\Notification.cs" />
+    <Compile Include="SOLID\5 DIP\II Solution\Implementations\SMS.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="SOLID\1 SRP\I Violation\!Explanation.md" />
+    <None Include="SOLID\2 OCP\I Violation\!Explanation.md" />
+    <None Include="SOLID\4 ISP\I Violation\!Explanation.md" />
+    <None Include="SOLID\4 ISP\II Solution\!Explanation.md" />
+    <None Include="SOLID\5 DIP\I Violation\!Explanation.md" />
+    <None Include="SOLID\5 DIP\II Solution\!Explanation.md" />
+    <None Include="SOLID\Sources.md" />
+    <None Include="SOLID\1 SRP\II Solution\!Explanation.md" />
+    <None Include="SOLID\2 OCP\II Solution\!Explanation.md" />
+    <None Include="SOLID\3 LSP\I Violation\!Explanation.md" />
+    <None Include="SOLID\3 LSP\II Solution\!Explanation.md" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
