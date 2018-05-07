@@ -2,6 +2,7 @@
 {
     using System;
     using Implementations;
+    using PackageA;
 
     public static class Execution
     {
@@ -10,9 +11,8 @@
             Console.WriteLine("DIP Solution Example");
 
             IMessage mail = new Email("sombody@example.com", "Testmessage", "Foo Bar");
-            IMessage sms = new SMS("(+41) 71 234 56 78", "Foo Bar");
 
-            var notification = new Notification(new []{ mail, sms });
+            var notification = new Notification(new []{ mail });
             notification.Send();
         }
     }

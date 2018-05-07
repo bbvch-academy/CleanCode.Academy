@@ -1,20 +1,19 @@
-﻿namespace bbv.Examples.SOLID._5_DIP.I_Violation
+﻿namespace bbv.Examples.SOLID._5_DIP.I_Violation.PackageA
 {
+    using PackageB;
+
     public class Notification
     {
         private readonly Email email;
-        private readonly SMS sms;
 
-        public Notification(Email email, SMS sms)
+        public Notification(Email email)
         {
             this.email = email;
-            this.sms = sms;
         }
 
         public void Send()
         {
             this.email.SendMail();
-            this.sms.SendSMS();
         }
     }
 }

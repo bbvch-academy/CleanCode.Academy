@@ -1,4 +1,4 @@
-﻿namespace bbv.Examples.SOLID._5_DIP.I_Violation
+﻿namespace bbv.Examples.SOLID._5_DIP.I_Violation.PackageB
 {
     using System;
 

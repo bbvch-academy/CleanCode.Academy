@@ -8,8 +8,3 @@ from the following sources
 
 source:
 https://scotch.io/bar-talk/s-o-l-i-d-the-first-five-principles-of-object-oriented-design
-
-## blog post of Matthew Jones
-
-source:
-https://exceptionnotfound.net/simply-solid-the-dependency-inversion-principle/

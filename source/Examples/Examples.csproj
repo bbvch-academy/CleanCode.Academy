@@ -83,15 +83,13 @@
     <Compile Include="SOLID\4 ISP\II Solution\IShape.cs" />
     <Compile Include="SOLID\4 ISP\II Solution\ISolidShape.cs" />
     <Compile Include="SOLID\4 ISP\II Solution\Square.cs" />
-    <Compile Include="SOLID\5 DIP\I Violation\EMail.cs" />
+    <Compile Include="SOLID\5 DIP\I Violation\PackageB\EMail.cs" />
     <Compile Include="SOLID\5 DIP\I Violation\Execution.cs" />
-    <Compile Include="SOLID\5 DIP\I Violation\Notification.cs" />
-    <Compile Include="SOLID\5 DIP\I Violation\SMS.cs" />
-    <Compile Include="SOLID\5 DIP\II Solution\IMessage.cs" />
-    <Compile Include="SOLID\5 DIP\II Solution\Implementations\EMail.cs" />
+    <Compile Include="SOLID\5 DIP\I Violation\PackageA\Notification.cs" />
+    <Compile Include="SOLID\5 DIP\II Solution\PackageA\IMessage.cs" />
+    <Compile Include="SOLID\5 DIP\II Solution\PackageB\EMail.cs" />
     <Compile Include="SOLID\5 DIP\II Solution\Execution.cs" />
-    <Compile Include="SOLID\5 DIP\II Solution\Notification.cs" />
-    <Compile Include="SOLID\5 DIP\II Solution\Implementations\SMS.cs" />
+    <Compile Include="SOLID\5 DIP\II Solution\PackageA\Notification.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

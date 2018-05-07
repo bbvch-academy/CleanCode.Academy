@@ -1,6 +1,7 @@
 ﻿namespace bbv.Examples.SOLID._5_DIP.II_Solution.Implementations
 {
     using System;
+    using PackageA;
 
     public class Email : IMessage
     {

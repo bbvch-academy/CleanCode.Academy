@@ -11,56 +11,60 @@ on abstractions.
 Let's have a look at the following class design.
 
 ```
+   ___________                      ___________
+  | Package A |                    | Package B |
+  |———————————————————————.        |————————————————————.
+  |                       |        |                    |
+  |   ,---------------.   |        |   ,------------.   |
+  |   |Notification   |   |        |   |Email       |   |
+  |   |---------------|---|--------|-->|------------|   |
+  |   |+Send()        |   |        |   |+SendMail() |   |
+  |   `---------------'   |        |   `------------'   |
+  `———————————————————————´        `————————————————————´
 
-    ,---------------.               ,------------.
-    |Notification   |               |Email       |
-    |---------------|-------------->|------------|
-    |+Send()        |     `         |+SendMail() |
-    `---------------'      |        `------------'
-                           |        
-                           |        ,-----------.
-                           |        |SMS        |
-                            `------>|-----------|
-                                    |+SendSMS() |
-                                    `-----------'
 
 ```
 
-In this example we use a `Notification` class to send two types of messages:
-email and SMS. The method `Send()` of the `Notification` class invokes the
-`Send()` method of the two repsectiv message classes.
+In this example we use a `Notification` class to send an email. 
+The method `Send()` of the `Notification` class invokes the
+`Send()` method of the `Email` class. Therefore we have a dependency of
+`Package A` to `Package B`.
 
-If we add a new message class or remove an existing one, we will be forced
-to modify the Notification class as well. Furthermore the `Notificiation`
-"knows" the concrete implementations of `EMail` and `SMS`.
+In this example the `Package A` is a high level module, because it does not concern
+how the notification will be send, if by email or an other way. But
+because we need the `Email` class we have a fix dependency from
+`Package A` to `Package B`. But what we want is quite the opposite of the current
+relation. We want the `Package B` to be dependable on `Package A`.
 
 How can we solve this issue?
 
 ## Possible Solution
 
-A possible solution would be to introduce an interface `IMessage`. The
-classes `Email` and `SMS` will implement this new interface and the
-`Notification` does not need to depend on the concrete implementations but
-on the new interface. Therefore the `Notification` class has no dependency
-at the two concrete implementations, allowing us to move them even in to
-another namespace.
+A possible solution would be to introduce an interface `IMessage` and place
+it in `Package A`. The classe `Email` will implement this new interface and the
+`Notification` does not need to depend on the concrete implementations of `Email`
+anymore and thereby on the lower level `Package B`. Thus we have *inversed* the
+dependency relation from `Package A` -> `Package B` to `Package B` -> `Package A`.
 
 ```
 
-    ,---------------.               ,--------------- .
-    |Notification   |               |<< interface >> |
-    |---------------|-------------->|IMessage        |
-    |+Send()        |               |----------------|
-    `---------------'               |+Send()         |
-                                    `----------------'
-                         _______________    A                  
-                        | Implemenation |   |                  
-                        |——————————————————————————————————————.
-                        |           ,------´ `-------,         |
-                        |           |                |         |
-                        |    ,-----------.      ,-----------.  |
-                        |    |Email      |      |SMS        |  |
-                        |    `-----------'      `-----------'  |
-                        |                                      |
-                        `——————————————————————————————————————´
+   ___________                        ___________
+  | Package A |                      | Package B |
+  |—————————————————————————.        |————————————————————.
+  |                         |        |                    |
+  |   ,--------------- .    |        |                    |
+  |   |<< interface >> |    |        |   ,------------.   |
+  |   |IMessage        |<|--|--------|---|Email       |   |
+  |   |----------------|    |        |   `------------'   |
+  |   |+Send()         |    |        |                    |
+  |   `----------------'    |        |                    |
+  |           ^             |        |                    |
+  |           |             |        |                    |
+  |   ,---------------.     |        |                    |
+  |   |Notification   |     |        |                    |
+  |   |---------------|     |        |                    |
+  |   |+Send()        |     |        |                    |
+  |   `---------------'     |        |                    |
+  `—————————————————————————´        `————————————————————´
+
 ```
