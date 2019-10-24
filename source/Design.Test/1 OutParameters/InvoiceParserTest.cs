@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="InvoiceParserTest.cs" company="bbv Software Services AG">
-//   Copyright (c) 2014
+//   Copyright (c) 2014 - 2020
 //   
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -45,7 +45,7 @@ namespace CleanCode.Naming.OutParameters
             Invoice invoice;
             this.testee.TryParse(CreateInvoice(Customer, Amount), out invoice);
 
-            invoice.ShouldBeEquivalentTo(new Invoice(Customer, Amount));
+            invoice.Should().BeEquivalentTo(new Invoice(Customer, Amount));
         }
 
         [Test]

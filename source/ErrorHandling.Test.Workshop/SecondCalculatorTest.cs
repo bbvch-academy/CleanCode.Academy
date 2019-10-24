@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="SecondCalculatorTest.cs" company="bbv Software Services AG">
-//   Copyright (c) 2014
+//   Copyright (c) 2014 - 2020
 //   
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -63,7 +63,7 @@ namespace ErrorHandling.Test.Workshop
 
             Action act = () => this.testee.PerformOperation(EndOperator.Name);
 
-            act.ShouldThrow<OverflowException>()
+            act.Should().Throw<OverflowException>()
                 .And.StackTrace.Should().Contain("SecondExercise.PowerOperator.Calculate");
         }
 
@@ -74,7 +74,7 @@ namespace ErrorHandling.Test.Workshop
             this.testee.PerformOperation(PowerOperator.Name);
             this.testee.SetNumber(5);
 
-            this.testee.Invoking(x => x.PerformOperation(EndOperator.Name)).ShouldThrow<Exception>();
+            this.testee.Invoking(x => x.PerformOperation(EndOperator.Name)).Should().Throw<Exception>();
 
             this.loggerStub.LoggedMessages.Should().Contain(x => x.Contains("something") && x.Contains("wrong"));
         }

@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="PersistenceTest.cs" company="bbv Software Services AG">
-//   Copyright (c) 2014
+//   Copyright (c) 2014 - 2020
 //   
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -44,7 +44,7 @@ namespace CleanCode.Naming.PersistingEnums
             this.testee.Save(person);
             Person loadedPerson = this.testee.Load(Name);
 
-            loadedPerson.ShouldBeEquivalentTo(new Person { Name = person.Name, Title = person.Title });
+            loadedPerson.Should().BeEquivalentTo(new Person { Name = person.Name, Title = person.Title });
         }
     }
 }

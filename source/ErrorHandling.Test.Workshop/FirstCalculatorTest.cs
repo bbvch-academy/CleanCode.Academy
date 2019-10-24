@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="FirstCalculatorTest.cs" company="bbv Software Services AG">
-//   Copyright (c) 2014
+//   Copyright (c) 2014 - 2020
 //   
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -72,7 +72,7 @@ namespace ErrorHandling.Test.Workshop
         {
             const string EmptyOperationCommandName = "";
 
-            this.testee.Invoking(x => x.PerformOperation(EmptyOperationCommandName)).ShouldThrow<Exception>();
+            this.testee.Invoking(x => x.PerformOperation(EmptyOperationCommandName)).Should().Throw<Exception>();
 
             this.loggerStub.LoggedMessages.Should().Contain(x => x.Contains("no operation set"));
         }
@@ -84,13 +84,13 @@ namespace ErrorHandling.Test.Workshop
 
             Action act = () => this.testee.PerformOperation(EmptyOperationCommandName);
 
-            act.ShouldThrow<ArgumentException>();
+            act.Should().Throw<ArgumentException>();
         }
 
         [Test]
         public void Logs_WhenOperationNull()
         {
-            this.testee.Invoking(x => x.PerformOperation(null)).ShouldThrow<Exception>();
+            this.testee.Invoking(x => x.PerformOperation(null)).Should().Throw<Exception>();
 
             this.loggerStub.LoggedMessages.Should().Contain(x => x.Contains("operation") && x.Contains("null"));
         }
@@ -100,7 +100,7 @@ namespace ErrorHandling.Test.Workshop
         {
             Action act = () => this.testee.PerformOperation(null);
 
-            act.ShouldThrow<ArgumentNullException>();
+            act.Should().Throw<ArgumentNullException>();
         }
 
         [Test]
@@ -111,7 +111,7 @@ namespace ErrorHandling.Test.Workshop
             this.testee.SetNumber(5);
             this.testee.PerformOperation(PowerOperationCommandName);
             this.testee.SetNumber(3);
-            this.testee.Invoking(x => x.PerformOperation(PowerOperationCommandName)).ShouldThrow<Exception>();
+            this.testee.Invoking(x => x.PerformOperation(PowerOperationCommandName)).Should().Throw<Exception>();
 
             this.loggerStub.LoggedMessages.Should().Contain(x => x.Contains("no Pow operation"));
         }
@@ -126,7 +126,7 @@ namespace ErrorHandling.Test.Workshop
             this.testee.SetNumber(3);
             Action act = () => this.testee.PerformOperation(EndOperator.Name);
 
-            act.ShouldThrow<InvalidOperationException>();
+            act.Should().Throw<InvalidOperationException>();
         }
     }
 }
