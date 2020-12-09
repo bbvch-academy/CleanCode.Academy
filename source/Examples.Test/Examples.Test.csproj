@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net472</TargetFramework>
+        <RootNamespace>Examples</RootNamespace>
+        <Company>bbv Software Services AG</Company>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Examples\Examples.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Geometry" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="FluentAssertions" Version="5.10.3" />
+      <PackageReference Include="NUnit" Version="3.12.0" />
+    </ItemGroup>
+
+</Project>

@@ -6,15 +6,15 @@
     {
         public static void Main()
         {
-            ExecutionOption chosenOtpion;
+            ExecutionOption option;
 
             do
             {
-                chosenOtpion = ChoseExecutionOption();
+                option = ChoseExecutionOption();
 
                 ChangeConsoleColor();
 
-                switch (chosenOtpion)
+                switch (option)
                 {
                     case ExecutionOption.SrpViolation:
                         SOLID._1_SRP.I_Violation.Execution.Run();
@@ -63,7 +63,7 @@
 
                 ResetConsoleColor();
             }
-            while (chosenOtpion != ExecutionOption.None);
+            while (option != ExecutionOption.None);
         }
 
         private static void ChangeConsoleColor()
