@@ -1,4 +1,4 @@
-﻿namespace Examples
+﻿namespace Examples.Geometry
 {
     using bbv.Examples.Geometry;
 
@@ -14,7 +14,7 @@
         [SetUp]
         public void SetUp()
         {
-            this.testee = new ExpressiveRectangleCounter();
+            this.testee = new StructuralRectangleCounter();
         }
 
         [Test]

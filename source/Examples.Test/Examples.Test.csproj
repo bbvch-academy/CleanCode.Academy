@@ -11,11 +11,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Geometry" />
-    </ItemGroup>
-
-    <ItemGroup>
       <PackageReference Include="FluentAssertions" Version="5.10.3" />
+      <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.8.3" />
       <PackageReference Include="NUnit" Version="3.12.0" />
     </ItemGroup>
 
