@@ -10,11 +10,11 @@
     {
         public static int ValueOf(int n)
         {
-            if (n <= 2)
-                return n - 1;
+            if (n == 0) return 0;
+            if (n <= 2) return 1;
 
             int a = 0, b = 1, c = 0;
-            for (int i = 2; i < n; i++)
+            for (int i = 1; i < n; i++)
             {
                 c = a + b;
                 a = b;
@@ -29,7 +29,7 @@
     {
         public static int ValueOf(int n)
         {
-            return Recursion(n - 1);
+            return Recursion(n);
         }
 
         private static int Recursion(int i)
@@ -45,14 +45,29 @@
         [Test]
         public void CalculatesFibonacciSequence()
         {
-            FibonacciWithRecursion.ValueOf(1).Should().Be(0);
-            FibonacciWithRecursion.ValueOf(2).Should().Be(1);
-            FibonacciWithRecursion.ValueOf(3).Should().Be(1);
-            FibonacciWithRecursion.ValueOf(4).Should().Be(2);
-            FibonacciWithRecursion.ValueOf(5).Should().Be(3);
-            FibonacciWithRecursion.ValueOf(6).Should().Be(5);
+            FibonacciInSequence.ValueOf(0).Should().Be(0);
+            FibonacciInSequence.ValueOf(1).Should().Be(1);
+            FibonacciInSequence.ValueOf(2).Should().Be(1);
+            FibonacciInSequence.ValueOf(3).Should().Be(2);
+            FibonacciInSequence.ValueOf(4).Should().Be(3);
+            FibonacciInSequence.ValueOf(5).Should().Be(5);
+            FibonacciInSequence.ValueOf(6).Should().Be(8);
 
-            FibonacciWithRecursion.ValueOf(11).Should().Be(55);
+            FibonacciInSequence.ValueOf(10).Should().Be(55);
+        }
+
+        [Test]
+        public void CalculatesFibonacciUsingRecursion()
+        {
+            FibonacciWithRecursion.ValueOf(0).Should().Be(0);
+            FibonacciWithRecursion.ValueOf(1).Should().Be(1);
+            FibonacciWithRecursion.ValueOf(2).Should().Be(1);
+            FibonacciWithRecursion.ValueOf(3).Should().Be(2);
+            FibonacciWithRecursion.ValueOf(4).Should().Be(3);
+            FibonacciWithRecursion.ValueOf(5).Should().Be(5);
+            FibonacciWithRecursion.ValueOf(6).Should().Be(8);
+
+            FibonacciWithRecursion.ValueOf(10).Should().Be(55);
         }
     }
 }
