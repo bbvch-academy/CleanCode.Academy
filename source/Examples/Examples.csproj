@@ -95,6 +95,7 @@
     <Compile Include="SOLID\5 DIP\II Solution\PackageB\EMail.cs" />
     <Compile Include="SOLID\5 DIP\II Solution\Execution.cs" />
     <Compile Include="SOLID\5 DIP\II Solution\PackageA\Notification.cs" />
+    <Compile Include="VarExample.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
