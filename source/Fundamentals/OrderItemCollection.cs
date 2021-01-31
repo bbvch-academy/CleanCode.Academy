@@ -13,7 +13,7 @@ namespace Fundamentals
     using System.Collections.Generic;
 
     /// <summary>
-    /// Represents the basket of an customer with all his/her order items.
+    /// Represents the shopping basket of an customer with all his/her order items.
     /// </summary>
     internal class OrderItemCollection
     {

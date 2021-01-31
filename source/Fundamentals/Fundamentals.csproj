@@ -43,6 +43,7 @@
     <Compile Include="OrderItem.cs" />
     <Compile Include="OrderItemCollection.cs" />
     <Compile Include="OrderManager.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

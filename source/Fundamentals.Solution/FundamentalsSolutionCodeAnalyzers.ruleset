@@ -133,7 +133,7 @@
         <Rule Id="SA1410"  Action="Warning" />          <!-- Remove delegate parenthesis when possible -->
         <Rule Id="SA1411"  Action="Warning" />          <!-- Attribute constructor should not use unnecessary parenthesis -->
         <Rule Id="SA1412"  Action="None"    />          <!-- Store files as UTF-8 with byte order mark -->
-        <Rule Id="SA1413"  Action="Warning" />          <!-- Use trailing comma in multi-line initializers -->
+        <Rule Id="SA1413"  Action="None" />          <!-- Use trailing comma in multi-line initializers -->
     </Rules>
 	
     <Rules AnalyzerId="StyleCop.Analyzers" RuleNamespace="StyleCop.Analyzers.LayoutRules">
@@ -161,10 +161,10 @@
     </Rules>
 	
     <Rules AnalyzerId="StyleCop.Analyzers" RuleNamespace="StyleCop.Analyzers.DocumentationRules">
-        <Rule Id="SA1600"  Action="Warning" />          <!-- Elements should be documented -->
-        <Rule Id="SA1601"  Action="Warning" />          <!-- Partial elements should be documented -->
-        <Rule Id="SA1602"  Action="Warning" />          <!-- Enumeration items should be documented -->
-        <Rule Id="SA1603"  Action="None" />             <!-- Documentation should contain valid XML -->
+        <Rule Id="SA1600"  Action="None" />          <!-- Elements should be documented -->
+        <Rule Id="SA1601"  Action="None" />          <!-- Partial elements should be documented -->
+        <Rule Id="SA1602"  Action="None" />          <!-- Enumeration items should be documented -->
+        <Rule Id="SA1603"  Action="Warning" />             <!-- Documentation should contain valid XML -->
         <Rule Id="SA1604"  Action="Warning" />          <!-- Element documentation should have summary -->
         <Rule Id="SA1605"  Action="Warning" />          <!-- Partial element documentation should have summary -->
         <Rule Id="SA1606"  Action="Warning" />          <!-- Element documentation should have summary text -->
@@ -172,7 +172,7 @@
         <Rule Id="SA1608"  Action="Warning" />          <!-- Element documentation should not have default summary -->
         <Rule Id="SA1609"  Action="None" />             <!-- Property documentation should have value -->
         <Rule Id="SA1610"  Action="Warning" />          <!-- Property documentation should have value text -->
-        <Rule Id="SA1611"  Action="Warning" />          <!-- Element parameters should be documented -->
+        <Rule Id="SA1611"  Action="None" />          <!-- Element parameters should be documented -->
         <Rule Id="SA1612"  Action="Warning" />          <!-- Element parameter documentation should match element parameters -->
         <Rule Id="SA1613"  Action="Warning" />          <!-- Element parameter documentation should declare parameter name -->
         <Rule Id="SA1614"  Action="Warning" />          <!-- Element parameter documentation should have text -->
@@ -194,7 +194,7 @@
         <Rule Id="SA1630"  Action="None" />             <!-- Documentation text should contain whitespace -->
         <Rule Id="SA1631"  Action="None" />             <!-- Documentation should meet character percentage -->
         <Rule Id="SA1632"  Action="None" />             <!-- Documentation text should meet minimum character length -->
-        <Rule Id="SA1633"  Action="Warning" />          <!-- File should have header -->
+        <Rule Id="SA1633"  Action="None" />          <!-- File should have header -->
         <Rule Id="SA1634"  Action="Warning" />          <!-- File header should show copyright -->
         <Rule Id="SA1635"  Action="Warning" />          <!-- File header should have copyright text -->
         <Rule Id="SA1636"  Action="Warning" />          <!-- File header copyright text should match -->
