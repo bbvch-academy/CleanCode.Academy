@@ -3,9 +3,6 @@
 //    Copyright (c) 2021 bbv Software Services AG. All Rights Reserved.
 //    Licensed under the Apache-2.0 License. See http://www.apache.org/licenses/LICENSE-2.0 for license information.
 // </copyright>
-// <summary>
-//   Contains the general assembly configuration.
-// </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
 using System.Reflection;
@@ -14,7 +11,7 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Fundamentals")]
+[assembly: AssemblyTitle("Fundamentals.Solution")]
 [assembly: AssemblyDescription("Collection of samples and excercises")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("bbv Software Services AG")]

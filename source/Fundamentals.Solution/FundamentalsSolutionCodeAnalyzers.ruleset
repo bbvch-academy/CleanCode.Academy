@@ -46,7 +46,7 @@
         <Rule Id="SA1106"  Action="Warning" />          <!-- Code should not contain empty statements -->
         <Rule Id="SA1107"  Action="Warning" />          <!-- Code should not contain multiple statements on one line -->
         <Rule Id="SA1108"  Action="Warning" />          <!-- Block statements should not contain embedded comments -->
-        <Rule Id="SA1109"  Action="Warning" />          <!-- Block statements should not contain embedded regions -->
+        <Rule Id="SA1109"  Action="None" />             <!-- Block statements should not contain embedded regions -->
         <Rule Id="SA1110"  Action="Warning" />          <!-- Opening parenthesis or bracket should be on declaration line -->
         <Rule Id="SA1111"  Action="Warning" />          <!-- Closing parenthesis should be on line of last parameter -->
         <Rule Id="SA1112"  Action="Warning" />          <!-- Closing parenthesis should be on line of opening parenthesis -->
@@ -62,7 +62,7 @@
         <Rule Id="SA1123"  Action="Warning" />          <!-- Do not place regions within elements -->
         <Rule Id="SA1124"  Action="Warning" />          <!-- Do not use regions -->
         <Rule Id="SA1125"  Action="Warning" />          <!-- Use shorthand for nullable types -->
-        <Rule Id="SA1126"  Action="Warning" />          <!-- Prefix calls correctly -->
+        <Rule Id="SA1126"  Action="None" />             <!-- Prefix calls correctly -->
         <Rule Id="SA1127"  Action="Warning" />          <!-- Generic type constraints should be on their own line -->
         <Rule Id="SA1128"  Action="Warning" />          <!-- Put constructor initializers on their own line -->
         <Rule Id="SA1129"  Action="Warning" />          <!-- Do not use default value type constructor -->
@@ -129,7 +129,7 @@
         <Rule Id="SA1406"  Action="Warning" />          <!-- Debug.Fail should provide message text -->
         <Rule Id="SA1407"  Action="Warning" />          <!-- Arithmetic expressions should declare precedence -->
         <Rule Id="SA1408"  Action="Warning" />          <!-- Conditional expressions should declare precedence -->
-        <Rule Id="SA1409"  Action="Warning" />          <!-- Remove unnecessary code -->
+        <Rule Id="SA1409"  Action="None"    />          <!-- Remove unnecessary code -->
         <Rule Id="SA1410"  Action="Warning" />          <!-- Remove delegate parenthesis when possible -->
         <Rule Id="SA1411"  Action="Warning" />          <!-- Attribute constructor should not use unnecessary parenthesis -->
         <Rule Id="SA1412"  Action="None"    />          <!-- Store files as UTF-8 with byte order mark -->
@@ -164,13 +164,13 @@
         <Rule Id="SA1600"  Action="Warning" />          <!-- Elements should be documented -->
         <Rule Id="SA1601"  Action="Warning" />          <!-- Partial elements should be documented -->
         <Rule Id="SA1602"  Action="Warning" />          <!-- Enumeration items should be documented -->
-        <Rule Id="SA1603"  Action="Warning" />          <!-- Documentation should contain valid XML -->
+        <Rule Id="SA1603"  Action="None" />             <!-- Documentation should contain valid XML -->
         <Rule Id="SA1604"  Action="Warning" />          <!-- Element documentation should have summary -->
         <Rule Id="SA1605"  Action="Warning" />          <!-- Partial element documentation should have summary -->
         <Rule Id="SA1606"  Action="Warning" />          <!-- Element documentation should have summary text -->
         <Rule Id="SA1607"  Action="Warning" />          <!-- Partial element documentation should have summary text -->
         <Rule Id="SA1608"  Action="Warning" />          <!-- Element documentation should not have default summary -->
-        <Rule Id="SA1609"  Action="Warning" />          <!-- Property documentation should have value -->
+        <Rule Id="SA1609"  Action="None" />             <!-- Property documentation should have value -->
         <Rule Id="SA1610"  Action="Warning" />          <!-- Property documentation should have value text -->
         <Rule Id="SA1611"  Action="Warning" />          <!-- Element parameters should be documented -->
         <Rule Id="SA1612"  Action="Warning" />          <!-- Element parameter documentation should match element parameters -->
@@ -189,18 +189,18 @@
         <Rule Id="SA1625"  Action="Warning" />          <!-- Element documentation should not be copied and pasted -->
         <Rule Id="SA1626"  Action="Warning" />          <!-- Single-line comments should not use documentation style slashes -->
         <Rule Id="SA1627"  Action="Warning" />          <!-- Documentation text should not be empty -->
-        <Rule Id="SA1628"  Action="Warning" />          <!-- Documentation text should begin with a capital letter -->
+        <Rule Id="SA1628"  Action="None" />             <!-- Documentation text should begin with a capital letter -->
         <Rule Id="SA1629"  Action="Warning" />          <!-- Documentation text should end with a period -->
-        <Rule Id="SA1630"  Action="Warning" />          <!-- Documentation text should contain whitespace -->
-        <Rule Id="SA1631"  Action="Warning" />          <!-- Documentation should meet character percentage -->
-        <Rule Id="SA1632"  Action="Warning" />          <!-- Documentation text should meet minimum character length -->
+        <Rule Id="SA1630"  Action="None" />             <!-- Documentation text should contain whitespace -->
+        <Rule Id="SA1631"  Action="None" />             <!-- Documentation should meet character percentage -->
+        <Rule Id="SA1632"  Action="None" />             <!-- Documentation text should meet minimum character length -->
         <Rule Id="SA1633"  Action="Warning" />          <!-- File should have header -->
         <Rule Id="SA1634"  Action="Warning" />          <!-- File header should show copyright -->
         <Rule Id="SA1635"  Action="Warning" />          <!-- File header should have copyright text -->
         <Rule Id="SA1636"  Action="Warning" />          <!-- File header copyright text should match -->
         <Rule Id="SA1637"  Action="Warning" />          <!-- File header should contain file name -->
         <Rule Id="SA1638"  Action="Warning" />          <!-- File header file name documentation should match file name -->
-        <Rule Id="SA1639"  Action="Warning" />          <!-- File header should have summary -->
+        <Rule Id="SA1639"  Action="None" />          <!-- File header should have summary -->
         <Rule Id="SA1640"  Action="Warning" />          <!-- File header should have valid company text -->
         <Rule Id="SA1641"  Action="Warning" />          <!-- File header company name text should match -->
         <Rule Id="SA1642"  Action="Warning" />          <!-- Constructor summary documentation should begin with standard text -->
