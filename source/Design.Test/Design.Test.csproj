@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="!SOLID\SolidTest.cs" />
     <Compile Include="2 ExceptionsForControlFlow\LoginServiceIntegrationTest.cs" />
     <Compile Include="1 ImmutableObjects\DeliveryServiceTest.cs" />
     <Compile Include="1 UnexpectedSideEffect\CustomerFinderTest.cs" />

@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{1C69E127-89F2-4866-B23A-EE620913C3DF}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CleanCode.Design</RootNamespace>
     <AssemblyName>CleanCode.Design</AssemblyName>
@@ -29,6 +29,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>CleanCode.Design.Programm</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -39,6 +42,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="!SOLID\ItemCollection.cs" />
+    <Compile Include="!SOLID\ItemColor.cs" />
+    <Compile Include="!SOLID\ItemType.cs" />
+    <Compile Include="!SOLID\Item.cs" />
+    <Compile Include="!SOLID\Programm.cs" />
+    <Compile Include="!SOLID\ShoppingBasket.cs" />
     <Compile Include="2 ExceptionsForControlFlow\ITokenGenerator.cs" />
     <Compile Include="2 ExceptionsForControlFlow\IUserAuthenticator.cs" />
     <Compile Include="2 ExceptionsForControlFlow\LoginService.cs" />
@@ -78,7 +87,13 @@
     <Compile Include="1 UseNullObjects\NewCustomer.cs" />
     <Compile Include="1 UseNullObjects\NewsletterService.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="!SOLID\!Readme.md" />
+    <Content Include="!SOLID\exercise.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="!SOLID\Uml.md" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
