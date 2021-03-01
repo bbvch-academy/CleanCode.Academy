@@ -1,4 +1,5 @@
-﻿namespace CleanCode.Design
+﻿// ReSharper disable CheckNamespace
+namespace CleanCode.Design.SolidExercise
 {
     public static class Programm
     {
@@ -14,7 +15,7 @@
             basket.Add(itemCollection.GetBook());
             basket.Add(itemCollection.GetNotebook(ItemColor.Yellow));
             basket.Add(itemCollection.GetPen(ItemColor.Blue));
-            basket.Add(itemCollection.GetPen(ItemColor.Blue));
+            basket.Add(itemCollection.GetPen(ItemColor.Green));
 
             basket.PrintToConsole();
             basket.SendOrderMail("myself@sample.ch");

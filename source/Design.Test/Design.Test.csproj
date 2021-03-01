@@ -66,6 +66,7 @@
     <Compile Include="1 OutParameters\InvoiceParserTest.cs" />
     <Compile Include="1 Overloads\OrderTest.cs" />
     <Compile Include="1 PersistingEnums\PersistenceTest.cs" />
+    <Compile Include="II SOLID Possible Solution\SolidTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="1 Singletons\InvoicePrintingServiceTest.cs" />
     <Compile Include="1 Singletons\InvoiceServiceTest.cs" />

@@ -30,9 +30,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>CleanCode.Design.Programm</StartupObject>
+    <StartupObject>CleanCode.Design.SolidExercise.Programm</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -74,6 +78,24 @@
     <Compile Include="1 PersistingEnums\Persistence.cs" />
     <Compile Include="1 PersistingEnums\Person.cs" />
     <Compile Include="1 PersistingEnums\Title.cs" />
+    <Compile Include="II SOLID Possible Solution\Book.cs" />
+    <Compile Include="II SOLID Possible Solution\FakeMailSender.cs" />
+    <Compile Include="II SOLID Possible Solution\IMailSender.cs" />
+    <Compile Include="II SOLID Possible Solution\Item.cs" />
+    <Compile Include="II SOLID Possible Solution\ItemCollection.cs" />
+    <Compile Include="II SOLID Possible Solution\ItemCollectionFactory.cs" />
+    <Compile Include="II SOLID Possible Solution\ConsolePrinter.cs" />
+    <Compile Include="II SOLID Possible Solution\ItemExtensionMethods.cs" />
+    <Compile Include="II SOLID Possible Solution\MailSender.cs" />
+    <Compile Include="II SOLID Possible Solution\MailSenderFactory.cs" />
+    <Compile Include="II SOLID Possible Solution\NotebookColor.cs" />
+    <Compile Include="II SOLID Possible Solution\Notebook.cs" />
+    <Compile Include="II SOLID Possible Solution\OrderMailFormatter.cs" />
+    <Compile Include="II SOLID Possible Solution\Pen.cs" />
+    <Compile Include="II SOLID Possible Solution\PenColor.cs" />
+    <Compile Include="II SOLID Possible Solution\Price.cs" />
+    <Compile Include="II SOLID Possible Solution\Programm.cs" />
+    <Compile Include="II SOLID Possible Solution\ShoppingBasket.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="1 Singletons\Invoice.cs" />
     <Compile Include="1 Singletons\InvoicePrintingService.cs" />
@@ -93,6 +115,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="!SOLID\Uml.md" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

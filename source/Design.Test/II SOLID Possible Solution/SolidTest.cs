@@ -1,5 +1,5 @@
 ﻿// ReSharper disable CheckNamespace
-namespace CleanCode.Design.SolidExercise
+namespace CleanCode.Design.SolidSolution
 {
     using FluentAssertions;
 

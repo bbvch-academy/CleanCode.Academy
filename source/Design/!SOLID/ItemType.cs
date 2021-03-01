@@ -1,4 +1,5 @@
-﻿namespace CleanCode.Design
+﻿// ReSharper disable CheckNamespace
+namespace CleanCode.Design.SolidExercise
 {
     public enum ItemType
     {
