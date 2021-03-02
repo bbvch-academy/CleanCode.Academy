@@ -63,42 +63,39 @@ namespace CleanCode.Design.SolidSolution
 
         private static List<Item> DeserializeJson(string json)
         {
-            var jsonDefinition = new[] { new { id = 0, type = "", title = "", author = "", price = 0m, color = "" } };
-            var items = JsonConvert.DeserializeAnonymousType(json, jsonDefinition);
+            var items = JsonConvert.DeserializeObject<List<ItemJsonDefinition>>(json);
 
             var result = new List<Item>();
 
+            // get all types that implement the deserialization interface
+            var interfaceType = typeof(ICanBeDeserializedFromJson);
+            var myTypes = AppDomain.CurrentDomain
+                .GetAssemblies()
+                .SelectMany(x => x.GetTypes())
+                .Where(x => x.IsClass && interfaceType.IsAssignableFrom(x))
+                .ToArray();
+
+            var implementations = new List<ICanBeDeserializedFromJson>();
+            foreach (var myType in myTypes)
+            {
+                var instance = (ICanBeDeserializedFromJson)Activator.CreateInstance(myType);
+                implementations.Add(instance);
+            }
+
+            // deserialize the json string using the appropriate type
             foreach (var j in items)
             {
-                var price = Price.FromChf(j.price);
+                var impl = implementations
+                    .FirstOrDefault(x => x.TypeName == j.Type);
 
-                switch (j.type)
+                if (impl == null)
                 {
-                    case "book":
-                        var book = new Book(j.id, j.title, price, j.author);
-                        result.Add(book);
-                        break;
-
-                    case "notebook":
-                        var notebookColor = (NotebookColor)Enum.Parse(typeof(NotebookColor), j.color);
-                        var notebook = new Notebook(j.id, j.title, price, notebookColor);
-                        result.Add(notebook);
-                        break;
-
-                    case "pen":
-                        var penColor = (PenColor)Enum.Parse(typeof(PenColor), j.color);
-                        var pen = new Pen(j.id, j.title, price, penColor);
-                        result.Add(pen);
-                        break;
-
-                    // CHALLENGE
-                    // It would be really nice, if we could avoid this switch statement for converting the json
-                    // objects into item types, so that we can be more "open" to new types
-                    // (without the need to extend this method).
-                    // Can you find a better way to reach this goal?
-                    default:
-                        throw new ArgumentException($"Unknown type: {j.type}");
+                    throw new InvalidOperationException(
+                        $"No implementation found for deserializing the type: {j.Type}");
                 }
+
+                var item = impl.DeserializeFrom(j);
+                result.Add(item);
             }
 
             return result;

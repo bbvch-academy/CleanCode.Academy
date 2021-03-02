@@ -80,12 +80,14 @@
     <Compile Include="1 PersistingEnums\Title.cs" />
     <Compile Include="II SOLID Possible Solution\Book.cs" />
     <Compile Include="II SOLID Possible Solution\FakeMailSender.cs" />
+    <Compile Include="II SOLID Possible Solution\ICanBeDeserializedFromJson.cs" />
     <Compile Include="II SOLID Possible Solution\IMailSender.cs" />
     <Compile Include="II SOLID Possible Solution\Item.cs" />
     <Compile Include="II SOLID Possible Solution\ItemCollection.cs" />
     <Compile Include="II SOLID Possible Solution\ItemCollectionFactory.cs" />
     <Compile Include="II SOLID Possible Solution\ConsolePrinter.cs" />
     <Compile Include="II SOLID Possible Solution\ItemExtensionMethods.cs" />
+    <Compile Include="II SOLID Possible Solution\ItemJsonDefinition.cs" />
     <Compile Include="II SOLID Possible Solution\MailSender.cs" />
     <Compile Include="II SOLID Possible Solution\MailSenderFactory.cs" />
     <Compile Include="II SOLID Possible Solution\NotebookColor.cs" />
